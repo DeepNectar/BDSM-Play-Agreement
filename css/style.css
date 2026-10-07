@@ -1286,3 +1286,127 @@ html, body {
     font-style: normal;
     letter-spacing: 0.4px;
 }
+
+/* ============================================================
+   SEAL & SIGN — signature photos + accept-as buttons
+   ============================================================ */
+.accept-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0 0.4rem;
+}
+.accept-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(200, 140, 160, 0.35);
+    border-radius: 60px;
+    padding: 0.65rem 1.6rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    color: #fcf3f7;
+}
+.accept-deep {
+    background: linear-gradient(145deg, #8f4f6b, #6a3b4f);
+    box-shadow: 0 6px 18px rgba(110, 50, 70, 0.35);
+}
+.accept-honey {
+    background: linear-gradient(145deg, #c0849d, #95557a);
+    box-shadow: 0 6px 18px rgba(160, 90, 125, 0.35);
+}
+.accept-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.accept-btn:active { transform: scale(0.98); }
+.accept-btn i { font-size: 0.9rem; }
+
+/* Signature cards */
+.sig-card { position: relative; }
+.sig-card > span:first-child { overflow-wrap: anywhere; }
+.sig-photo {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 0.4rem 0 0.2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(200, 140, 160, 0.25);
+    background: rgba(255, 250, 252, 0.94);
+    padding: 4px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+}
+.sig-card.signed .sig-photo { opacity: 1; transform: none; }
+.sig-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink-dim);
+}
+.sig-card.signed .sig-status { color: #7fd6a8; }
+.sig-card.signed .sig-status i { animation: none; }
+.sig-card .accept-btn { margin-top: 0.6rem; font-size: 0.75rem; padding: 0.5rem 1.1rem; }
+.sig-card.signed .accept-btn {
+    background: rgba(60, 40, 50, 0.5);
+    border-color: rgba(120, 200, 150, 0.4);
+    color: #7fd6a8;
+    box-shadow: none;
+}
+.sig-caption {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.sig-card.signed .sig-caption { opacity: 1; }
+
+/* Auto-signed initials / notes slots */
+.initials-slot { position: relative; display: inline-block; }
+.initials-slot .slot-sig {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-52%) rotate(-2deg);
+    max-height: 30px;
+    max-width: 110px;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.initials-slot.slot-filled .slot-sig { opacity: 1; }
+.initials-slot.slot-filled input.editable-field { visibility: hidden; }
+.initials-row { line-height: 2.1; }
+
+/* Compact accept UI on phones */
+@media (max-width: 550px) {
+    .accept-row { gap: 0.6rem; }
+    .accept-row .accept-btn { flex: 1 1 auto; justify-content: center; padding: 0.6rem 1rem; font-size: 0.78rem; }
+    .sig-photo { max-width: 180px; }
+    .initials-slot .slot-sig { max-height: 24px; max-width: 84px; }
+    .sig-card .accept-btn { width: 100%; justify-content: center; }
+}
+
+/* Print: accepted signatures appear in light, professional form */
+@media print {
+    .accept-row, .sig-card .accept-btn, .sig-status { display: none !important; }
+    .sig-photo { opacity: 1 !important; transform: none !important; box-shadow: none; border-color: #ccc; }
+    .initials-slot .slot-sig { opacity: 1 !important; }
+    .initials-slot:not(.slot-filled) input.editable-field { visibility: visible !important; }
+}

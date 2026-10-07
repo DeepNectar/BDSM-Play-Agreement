@@ -37,6 +37,9 @@
                     contract.classList.add('visible');
                     errorMsg.textContent = '';
                     loadSavedData();
+                    // Re-apply accepted signature photos AFTER saved values are restored,
+                    // so the auto-sign always wins over stale text from a previous session.
+                    applySignatures();
                 } else {
                     errorMsg.textContent = '⛔ wrong password, try again.';
                     passwordInput.value = '';
@@ -184,6 +187,141 @@
             setInterval(saveData, 30000);
             window.saveContractData = saveData;
 
+            // ---- Seal & Sign: accept-as-Deep / accept-as-Honey signature photos ----
+            // Signature photos (Google Drive direct-thumbnail links) supplied per request:
+            //   Deep  -> 1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj
+            //   Honey -> 1HRoqjVvSDswlROnookv0ykGagHwLQ6FI
+            const SIGNATURES = {
+                deep:  'https://drive.google.com/thumbnail?id=1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj&sz=w400',
+                honey: 'img/signature-honey.png'
+            };
+            // If the Drive thumbnail link ever fails to load, fall back to direct file download.
+            const SIGNATURE_FALLBACKS = {
+                deep:  'https://drive.usercontent.google.com/download?id=1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj&export=view',
+                honey: 'https://drive.google.com/thumbnail?id=1HRoqjVvSDswlROnookv0ykGagHwLQ6FI&sz=w400'
+            };
+            const SIGNED_NAMES = { deep: 'Deep', honey: 'Honey' };
+            const ACCEPTED_KEY = 'bdsmContractAccepted';
+
+            function getAccepted() {
+                try { return JSON.parse(localStorage.getItem(ACCEPTED_KEY)) || {}; }
+                catch (e) { return {}; }
+            }
+
+            function persistAccepted(accepted) {
+                try { localStorage.setItem(ACCEPTED_KEY, JSON.stringify(accepted)); }
+                catch (err) { console.warn('Could not persist acceptance:', err); }
+            }
+
+            // Fill every .initials-slot belonging to a party with the signature image,
+            // so the photo appears wherever initials/notes/signatures are required.
+            function fillSlots(party) {
+                document.querySelectorAll('.initials-slot[data-party="' + party + '"]').forEach(function(slot) {
+                    if (slot.classList.contains('slot-filled')) return;
+                    const input = slot.querySelector('input');
+                    if (input) {
+                        // Only prefill untouched fields — never overwrite the user's own text.
+                        if (!input.value.trim()) input.value = SIGNED_NAMES[party];
+                        input.setAttribute('readonly', 'readonly');
+                    }
+                    const img = document.createElement('img');
+                    img.src = SIGNATURES[party];
+                    img.onerror = function() {
+                        // one-time fallback to the alternate source for this photo
+                        this.onerror = null;
+                        this.src = SIGNATURE_FALLBACKS[party];
+                    };
+                    img.alt = SIGNED_NAMES[party] + "'s signature";
+                    img.className = 'slot-sig';
+                    img.loading = 'lazy';
+                    slot.appendChild(img);
+                    slot.classList.add('slot-filled');
+                });
+            }
+
+            function clearSlots(party) {
+                document.querySelectorAll('.initials-slot[data-party="' + party + '"].slot-filled').forEach(function(slot) {
+                    slot.classList.remove('slot-filled');
+                    const img = slot.querySelector('img.slot-sig');
+                    if (img) img.remove();
+                    const input = slot.querySelector('input');
+                    if (input) {
+                        input.removeAttribute('readonly');
+                        if (input.value.trim() === SIGNED_NAMES[party]) input.value = '';
+                    }
+                });
+            }
+
+            function updateAcceptButtons() {
+                const accepted = getAccepted();
+                document.querySelectorAll('.accept-btn').forEach(function(btn) {
+                    const party = btn.dataset.party;
+                    const on = !!accepted[party];
+                    btn.classList.toggle('accepted', on);
+                    btn.innerHTML = on
+                        ? '<i class="fas fa-check-double"></i> ' + SIGNED_NAMES[party] + (btn.closest('.accept-row') ? ' · Sealed' : ' · Signed — tap to undo')
+                        : '<i class="fas fa-check"></i> Accept as ' + SIGNED_NAMES[party];
+                });
+                document.querySelectorAll('.sig-card').forEach(function(card) {
+                    const party = card.dataset.party;
+                    const on = !!accepted[party];
+                    card.classList.toggle('signed', on);
+                    const status = card.querySelector('.sig-status');
+                    if (status) {
+                        status.innerHTML = on
+                            ? '<i class="fas fa-circle-check"></i> Accepted &amp; signed'
+                            : '<i class="fas fa-circle-notch"></i> Awaiting acceptance';
+                    }
+                    if (on) {
+                        const input = card.querySelector('.editable-field');
+                        if (input && !input.value.trim()) input.value = SIGNED_NAMES[party];
+                    }
+                });
+            }
+
+            function applySignatures() {
+                const accepted = getAccepted();
+                ['deep', 'honey'].forEach(function(party) {
+                    if (accepted[party]) fillSlots(party);
+                });
+                updateAcceptButtons();
+            }
+
+            // Undo is only allowed within 5 minutes of accepting (a gentle guard rail).
+            function canUndo(ts) {
+                return !ts || (Date.now() - ts) < 5 * 60 * 1000;
+            }
+
+            document.addEventListener('click', function(e) {
+                const btn = e.target.closest('.accept-btn');
+                if (!btn) return;
+                const party = btn.dataset.party;
+                if (!party || !SIGNATURES[party]) return;
+                const accepted = getAccepted();
+                if (accepted[party]) {
+                    if (!canUndo(accepted[party].ts)) {
+                        showToast('🔒 Already sealed — undo is only available for 5 minutes');
+                        return;
+                    }
+                    delete accepted[party];
+                    persistAccepted(accepted);
+                    clearSlots(party);
+                    saveData();
+                    showToast('↩️ ' + SIGNED_NAMES[party] + "'s acceptance undone");
+                    return;
+                }
+                accepted[party] = { ts: Date.now() };
+                persistAccepted(accepted);
+                fillSlots(party);
+                updateAcceptButtons();
+                saveData();
+                showToast('💞 ' + SIGNED_NAMES[party] + ' accepted & signed — your signature is live');
+            });
+
+            // Restore signatures after unlock and on load (kept in localStorage).
+            window.addEventListener('load', applySignatures);
+            applySignatures();
+
             // ---- Email Modal ----
             const emailModal = document.getElementById('emailModal');
             const openEmailBtn = document.getElementById('openEmailModalBtn');
@@ -222,6 +360,36 @@
                 // Get footer
                 const footer = clone.querySelector('.footer-note');
                 const footerHTML = footer ? footer.outerHTML : '';
+
+                // Reflect Seal & Sign state in the exported email HTML:
+                // accepted -> show signature photo; not accepted -> show a pending note.
+                const emailAccepted = getAccepted();
+                ['deep', 'honey'].forEach(function(party) {
+                    const name = SIGNED_NAMES[party];
+                    clone.querySelectorAll('.initials-slot[data-party="' + party + '"]').forEach(function(slot) {
+                        if (emailAccepted[party]) {
+                            slot.innerHTML = '<img src="' + SIGNATURES[party] + '" alt="' + name + "'s signature" + '" style="max-height:28px;vertical-align:middle;">';
+                        } else {
+                            const input = slot.querySelector('input');
+                            slot.replaceWith((input ? input.outerHTML : '') + ' <em style="font-size:11px;color:#999;">(awaiting ' + name + "'s acceptance)</em>");
+                        }
+                    });
+                    const card = clone.querySelector('.sig-card[data-party="' + party + '"]');
+                    if (card) {
+                        const btn = card.querySelector('.accept-btn');
+                        if (btn) btn.remove();
+                        const status = card.querySelector('.sig-status');
+                        if (status) {
+                            status.innerHTML = emailAccepted[party]
+                                ? '<span style="color:#3e8e5e;font-style:normal;">✔ Accepted &amp; signed</span>'
+                                : '<span style="color:#999;font-style:normal;">Awaiting acceptance</span>';
+                        }
+                        const photo = card.querySelector('.sig-photo');
+                        if (photo && !emailAccepted[party]) photo.remove();
+                    }
+                });
+                const acceptRow = clone.querySelector('.accept-row');
+                if (acceptRow) acceptRow.remove();
 
                 // Build email HTML
                 return `
