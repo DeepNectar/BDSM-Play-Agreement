@@ -15,11 +15,10 @@
             const toggleBtn = document.getElementById('togglePasswordBtn');
             const toggleIcon = document.getElementById('toggleIcon');
 
-            // BUG FIX: the on-screen hint says "pet name + @ + the Date & Month we met + @",
-            // but the old hard-coded value ('Deepnectar@1612@') matched neither the pet name
-            // nor the meeting date (30th July), so the contract could never be unlocked
-            // following the advertised hint. The password now matches the hint.
-            const CORRECT_PASSWORD = 'Honey@3007@';
+            // Password updated per request: "DeepH@2805".
+            // NOTE: this no longer follows the old "pet name + @ + date + @" pattern,
+            // so the on-screen hint was updated in index.html to match.
+            const CORRECT_PASSWORD = 'DeepH@2805';
 
             // Toggle password visibility
             toggleBtn.addEventListener('click', function() {

@@ -7,6 +7,20 @@
    ============================================================ */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---------- Design tokens (professional · romantic rose & champagne) ---------- */
+:root {
+    --rose:        #c4899f;   /* primary accent */
+    --rose-deep:   #9d5b76;   /* buttons / borders */
+    --rose-soft:   #e9cdda;   /* highlights */
+    --champagne:   #d9c2a5;   /* secondary accent */
+    --ink:         #f3e9ee;   /* body text */
+    --ink-dim:     #b3919f;   /* muted text */
+    --panel:       rgba(28, 18, 23, 0.88);
+    --card:        rgba(44, 28, 35, 0.42);
+    --hairline:    rgba(200, 150, 170, 0.14);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: #0f0b0e;
@@ -216,10 +230,10 @@ body {
     z-index: 5;
     max-width: 1200px;
     width: 100%;
-    background: rgba(22, 14, 18, 0.85);
+    background: var(--panel);
     backdrop-filter: blur(3px);
     border-radius: 2.5rem;
-    border: 1px solid rgba(200, 150, 170, 0.15);
+    border: 1px solid var(--hairline);
     box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 0 60px rgba(120, 60, 80, 0.08);
     padding: 2.8rem 2.8rem 3rem;
     transition: opacity 0.5s ease;
@@ -238,6 +252,29 @@ h1, h2, h3, h4 {
     font-weight: 400;
     letter-spacing: 0.3px;
 }
+
+/* ---------- Utility classes replacing former inline styles ---------- */
+.icon-gap   { margin-right: 8px; }
+.icon-rose  { color: var(--rose); }
+.heart-icon { color: var(--rose); }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.safe-word-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.5rem 0; align-items: center; }
+.accent-rose { border-left-color: var(--rose); }
+.rose-center { text-align: center; font-style: italic; font-size: 1.1rem; }
+.italic      { font-style: italic; }
+.badge-green  { background: #1f4f3a; }
+.badge-yellow { background: #7a5f2e; }
+.badge-red    { background: #6f2a3a; }
+.border-none  { border-top: none; margin-top: 0.5rem; }
+.final-note.plain { font-style: normal; font-weight: 400; }
+.section-divider        { border-top: 1px solid rgba(200,150,170,0.2); }
+.section-divider-strong { border-top: 2px solid rgba(200,150,170,0.15); }
+.signature-block.mt-sm  { margin-top: 1.5rem; }
+.sig-meta   { font-size: 0.7rem; }
+.footer-sub { font-size: 0.85rem; opacity: 0.7; }
+.page-number { font-size: 0.8rem; opacity: 0.6; }
+.editable-field-md  { min-width: 150px; }
+.editable-field-sm2 { min-width: 80px; }
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -248,9 +285,11 @@ h1, h2, h3, h4 {
     margin-bottom: 1.8rem;
 }
 .main-header .title-group h1 {
-    font-size: 2.4rem;
+    font-size: clamp(1.9rem, 3.2vw, 2.5rem);
     font-weight: 600;
-    background: linear-gradient(135deg, #f5dce6, #dbb0c4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #f7e3ea 10%, var(--rose) 55%, var(--champagne) 95%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -279,18 +318,28 @@ h1, h2, h3, h4 {
     padding-top: 1.8rem;
 }
 .section-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
     font-weight: 600;
     color: #edd6e0;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    position: relative;
+    padding-bottom: 0.45rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 64px; height: 2px;
+    background: linear-gradient(90deg, var(--rose), transparent);
+    border-radius: 2px;
 }
 .section-title i { color: #b8809a; font-size: 1.2rem; }
 .card-rule {
-    background: rgba(40, 25, 32, 0.4);
-    border-left: 3px solid #9f6a80;
+    background: var(--card);
+    border-left: 3px solid var(--rose-deep);
     padding: 0.8rem 1.4rem;
     border-radius: 0 12px 12px 0;
     margin: 0.8rem 0;
@@ -502,42 +551,28 @@ h1, h2, h3, h4 {
     pointer-events: none;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
-.print-btn {
-    background: rgba(40, 25, 32, 0.5);
-    border: 1px solid #7a5464;
-    border-radius: 20px;
-    padding: 0.3rem 1.2rem;
-    color: #b08899;
+.print-btn, .email-btn {
+    background: linear-gradient(145deg, rgba(157, 91, 118, 0.28), rgba(44, 28, 35, 0.5));
+    border: 1px solid rgba(196, 137, 159, 0.45);
+    border-radius: 60px;
+    padding: 0.45rem 1.3rem;
+    color: #e9cfda;
+    font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
     cursor: pointer;
-    transition: 0.3s;
-    margin-left: 1rem;
+    transition: 0.25s;
     display: inline-flex;
     align-items: center;
     gap: 6px;
 }
-.print-btn:hover {
-    background: rgba(60, 35, 45, 0.6);
-    border-color: #c481a0;
-    color: #f0dde6;
-}
-.email-btn {
-    background: rgba(40, 25, 32, 0.5);
-    border: 1px solid #7a5464;
-    border-radius: 20px;
-    padding: 0.3rem 1.2rem;
-    color: #b08899;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-.email-btn:hover {
-    background: rgba(60, 35, 45, 0.6);
-    border-color: #c481a0;
-    color: #f0dde6;
+.print-btn { margin-left: 1rem; }
+.print-btn:hover, .email-btn:hover {
+    background: linear-gradient(145deg, var(--rose-deep), rgba(157, 91, 118, 0.6));
+    border-color: var(--rose);
+    color: #fdf4f8;
+    box-shadow: 0 6px 16px rgba(157, 91, 118, 0.3);
 }
 .header-actions {
     display: flex;
@@ -1198,4 +1233,56 @@ html, body {
         table-layout: auto !important;
         word-break: break-word !important;
     }
+}
+
+/* ============================================================ */
+/* ---------- FINAL PASS: professional & romantic polish ------ */
+/* ---------- + extra-compact layout for phones & laptops ----- */
+/* ============================================================ */
+
+/* Softer, more elegant card feel */
+.card-rule { box-shadow: 0 1px 4px rgba(0,0,0,0.18); line-height: 1.6; }
+.rule-item { transition: border-color 0.25s, transform 0.25s; }
+.rule-item:hover { border-color: rgba(196, 137, 159, 0.35); }
+
+/* Elegant selection + scrollbar in brand colors */
+::selection { background: rgba(196, 137, 159, 0.35); color: #fff; }
+
+/* Compact spacing on laptops (<=1440px) — denser without feeling cramped */
+@media (max-width: 1440px) {
+    .contract-wrapper { padding: 2rem 2.2rem 2.4rem; }
+    .section { margin-top: 1.9rem; padding-top: 1.4rem; }
+    .card-rule { margin: 0.6rem 0; padding: 0.7rem 1.2rem; }
+}
+
+/* Extra compact phones (<=550px) additions */
+@media (max-width: 550px) {
+    .section-title { padding-bottom: 0.35rem; margin-bottom: 0.7rem; }
+    .card-rule { line-height: 1.5; }
+    .safe-word-row { gap: 0.5rem; font-size: 0.8rem; line-height: 1.5; }
+    .badge { margin-bottom: 0.2rem; }
+    .editable-field-md  { min-width: 110px; }
+    .editable-field-sm2 { min-width: 60px; }
+    .sig-meta { display: block; margin-top: 0.3rem; line-height: 1.9; }
+    /* keep long words from breaking the layout */
+    .card-rule, .rule-item { overflow-wrap: break-word; word-break: normal; }
+}
+
+/* Respect users who prefer less motion (professional touch) */
+@media (prefers-reduced-motion: reduce) {
+    .bg-effect::before, .heart, .sparkle-overlay, .lock-icon, .contract-wrapper {
+        animation: none !important;
+    }
+}
+
+/* ---------- Email modal: rose-gold subject tag (professional accent) ---------- */
+.email-modal-box .subject-line .email-subject-auto {
+    background: linear-gradient(135deg, #f7e3ea 10%, var(--rose) 55%, var(--champagne) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--rose);
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.4px;
 }
