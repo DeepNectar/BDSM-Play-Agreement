@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DYNAMIC {BDSM} PLAY CONTRACT · Deep & Honey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0b0e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            color: #f0e6ea;
+        }
+        .bg-effect {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: radial-gradient(circle at 30% 40%, #2a1a24 0%, #0d080b 80%);
+            overflow: hidden;
+        }
+        .bg-effect::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(200, 80, 120, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(180, 60, 100, 0.12) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, rgba(180, 90, 130, 0.03) 0px, rgba(180, 90, 130, 0.03) 2px, transparent 2px, transparent 8px);
+            animation: shimmer 18s linear infinite, pulseGlow 6s ease-in-out infinite alternate;
+        }
+        @keyframes shimmer { 0% { background-position: 0 0; } 100% { background-position: 200% 200%; } }
+        @keyframes pulseGlow {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.02); }
+        }
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: rgba(220, 120, 160, 0.18);
+            font-size: 2rem;
+            animation: floatHeart 20s infinite ease-in-out;
+            transform-origin: center;
+        }
+        .heart:nth-child(1) { left: 10%; animation-duration: 22s; font-size: 2.8rem; }
+        .heart:nth-child(2) { left: 30%; animation-duration: 26s; font-size: 2rem; animation-delay: -4s; }
+        .heart:nth-child(3) { left: 55%; animation-duration: 24s; font-size: 3.2rem; animation-delay: -8s; }
+        .heart:nth-child(4) { left: 75%; animation-duration: 28s; font-size: 2.4rem; animation-delay: -2s; }
+        .heart:nth-child(5) { left: 90%; animation-duration: 30s; font-size: 1.8rem; animation-delay: -12s; }
+        .heart:nth-child(6) { left: 20%; animation-duration: 20s; font-size: 1.6rem; animation-delay: -6s; }
+        .heart:nth-child(7) { left: 68%; animation-duration: 32s; font-size: 2.2rem; animation-delay: -10s; }
+        .heart:nth-child(8) { left: 45%; animation-duration: 25s; font-size: 2.6rem; animation-delay: -14s; }
+        .heart:nth-child(9) { left: 82%; animation-duration: 29s; font-size: 1.9rem; animation-delay: -16s; }
+        @keyframes floatHeart {
+            0% { transform: translateY(0px) scale(0.8) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(-120px) scale(1.3) rotate(8deg); opacity: 0.6; }
+            100% { transform: translateY(0px) scale(0.8) rotate(0deg); opacity: 0.2; }
+        }
+        .sparkle-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 200, 220, 0.03) 0%, transparent 70%);
+            animation: sparklePulse 4s ease-in-out infinite alternate;
+        }
+        @keyframes sparklePulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        #password-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(10, 6, 8, 0.92);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1.8rem;
+            padding: 2rem;
+        }
+        #password-overlay.hidden { display: none; }
+        .lock-icon {
+            font-size: 4rem;
+            color: #d4a0b8;
+            filter: drop-shadow(0 0 18px #b06a8a);
+            animation: pulseLock 2.4s infinite;
+        }
+        @keyframes pulseLock {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        .password-box {
+            background: rgba(30, 18, 24, 0.7);
+            padding: 2.5rem 2.8rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(200, 130, 160, 0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .password-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: #f0dde6;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        .password-box p {
+            color: #b895a5;
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px dashed rgba(180, 120, 140, 0.2);
+            padding-bottom: 1rem;
+        }
+        .password-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .password-input-group .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .password-input-group .input-wrapper input {
+            background: rgba(20, 12, 16, 0.7);
+            border: 1px solid #5e3f4b;
+            border-radius: 60px;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem;
+            color: #f0e6ea;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+            letter-spacing: 1px;
+            width: 100%;
+            padding-right: 3.5rem;
+        }
+        .password-input-group .input-wrapper input:focus {
+            border-color: #c481a0;
+            box-shadow: 0 0 16px rgba(196, 129, 160, 0.2);
+        }
+        .password-input-group .input-wrapper .toggle-password {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #9f6a80;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .password-input-group .input-wrapper .toggle-password:hover {
+            color: #c481a0;
+            transform: scale(1.1);
+        }
+        .password-input-group button {
+            background: linear-gradient(145deg, #8f4f6b, #6a3b4f);
+            border: none;
+            padding: 0.9rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fcf3f7;
+            cursor: pointer;
+            transition: 0.25s;
+            letter-spacing: 0.8px;
+            box-shadow: 0 6px 18px rgba(110, 50, 70, 0.3);
+        }
+        .password-input-group button:hover {
+            transform: scale(1.02);
+            background: linear-gradient(145deg, #a05f7a, #7a445b);
+            box-shadow: 0 8px 24px rgba(140, 70, 95, 0.4);
+        }
+        .error-msg {
+            color: #e8a0b0;
+            font-size: 0.85rem;
+            min-height: 1.6rem;
+            margin-top: 0.2rem;
+        }
+        .hint-text {
+            margin-top: 1.2rem;
+            font-size: 0.75rem;
+            color: #7a5464;
+            letter-spacing: 0.3px;
+            font-style: italic;
+        }
+        .hint-text i { color: #9f6a80; margin-right: 6px; }
+        .contract-wrapper {
+            position: relative;
+            z-index: 5;
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(22, 14, 18, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(200, 150, 170, 0.15);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8), inset 0 0 60px rgba(120, 60, 80, 0.08);
+            padding: 2.8rem 2.8rem 3rem;
+            transition: opacity 0.5s ease;
+        }
+        .contract-content {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+            scroll-behavior: smooth;
+        }
+        .contract-content::-webkit-scrollbar { width: 5px; }
+        .contract-content::-webkit-scrollbar-track { background: rgba(40, 25, 30, 0.3); border-radius: 20px; }
+        .contract-content::-webkit-scrollbar-thumb { background: #9f6a80; border-radius: 20px; }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(200, 150, 170, 0.15);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+        .main-header .title-group h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f5dce6, #dbb0c4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+        .main-header .title-group .subhead {
+            color: #c9a8b8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+        }
+        .logo-img {
+            max-height: 90px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(180, 90, 130, 0.2);
+            border: 1px solid rgba(200, 150, 170, 0.15);
+            background: rgba(30, 18, 24, 0.4);
+            padding: 4px;
+            object-fit: contain;
+        }
+        .section {
+            margin-top: 2.4rem;
+            border-top: 1px solid rgba(200, 150, 170, 0.08);
+            padding-top: 1.8rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #edd6e0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section-title i { color: #b8809a; font-size: 1.2rem; }
+        .card-rule {
+            background: rgba(40, 25, 32, 0.4);
+            border-left: 3px solid #9f6a80;
+            padding: 0.8rem 1.4rem;
+            border-radius: 0 12px 12px 0;
+            margin: 0.8rem 0;
+            transition: 0.2s;
+        }
+        .card-rule strong { color: #eccad8; font-weight: 600; }
+        .highlight {
+            background: rgba(160, 80, 110, 0.15);
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            color: #f2d3df;
+            font-weight: 500;
+        }
+        .badge {
+            display: inline-block;
+            background: #4f2f3b;
+            padding: 0.1rem 0.9rem;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #f0d3df;
+            margin-right: 0.4rem;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 0.8rem 0;
+        }
+        @media (max-width: 640px) {
+            .grid-2col { grid-template-columns: 1fr; }
+            .contract-wrapper { padding: 1.8rem; }
+            .main-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .logo-img { max-height: 60px; align-self: flex-start; }
+        }
+        .rule-item {
+            background: rgba(30, 18, 22, 0.5);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(150, 100, 120, 0.08);
+        }
+        .signature-block {
+            background: rgba(40, 25, 32, 0.3);
+            border-radius: 20px;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(200, 140, 160, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .signature-line { min-width: 180px; }
+        .signature-line span {
+            display: block;
+            font-size: 0.7rem;
+            color: #b08899;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .signature-line .line {
+            border-bottom: 2px solid #7a5464;
+            width: 180px;
+            margin: 0.3rem 0 0.2rem;
+            height: 1.8rem;
+        }
+        .final-note {
+            font-style: italic;
+            color: #dbbacc;
+            border-top: 1px solid rgba(180, 120, 140, 0.15);
+            margin-top: 2.2rem;
+            padding-top: 1.8rem;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+        .fa-heart { color: #c47a9a; margin: 0 4px; }
+        .small-meta { color: #9f7a88; font-size: 0.8rem; letter-spacing: 0.3px; }
+        .contract-wrapper { animation: fadeSlide 0.8s ease; }
+        @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(28px); } 100% { opacity: 1; transform: translateY(0); } }
+        .toy-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.6rem 0;
+        }
+        .toy-table td, .toy-table th {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid rgba(200, 150, 170, 0.1);
+            vertical-align: middle;
+        }
+        .toy-table th {
+            background: rgba(50, 30, 38, 0.4);
+            color: #dbbacc;
+            font-weight: 500;
+            text-align: left;
+        }
+        .toy-table input[type="checkbox"] {
+            accent-color: #b8809a;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .toy-table .check-group {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .toy-table .check-group label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .footer-note {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(200, 150, 170, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #b08899;
+            letter-spacing: 0.3px;
+            line-height: 1.6;
+        }
+        .footer-note i { color: #c47a9a; }
+        .inline-check {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin: 0 4px;
+        }
+        .inline-check input[type="checkbox"] { accent-color: #b8809a; width: 14px; height: 14px; cursor: pointer; }
+        .editable-field {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 2px dashed #7a5464;
+            margin: 0 4px;
+            padding: 0 4px;
+            background: rgba(30, 18, 24, 0.3);
+            color: #f0e6ea;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+            border-radius: 0 0 4px 4px;
+        }
+        .editable-field:focus {
+            border-bottom-color: #c481a0;
+            background: rgba(40, 25, 32, 0.5);
+            box-shadow: 0 2px 8px rgba(196, 129, 160, 0.15);
+        }
+        .editable-field-lg { min-width: 200px; }
+        .editable-field-sm { min-width: 80px; }
+        .editable-field-xl { min-width: 280px; }
+        .editable-textarea {
+            display: block;
+            width: 100%;
+            min-height: 40px;
+            background: rgba(30, 18, 24, 0.3);
+            border: 1px dashed #7a5464;
+            border-radius: 8px;
+            padding: 0.5rem 0.8rem;
+            color: #f0e6ea;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+            resize: vertical;
+            margin: 0.3rem 0;
+        }
+        .editable-textarea:focus {
+            border-color: #c481a0;
+            background: rgba(40, 25, 32, 0.5);
+            box-shadow: 0 2px 8px rgba(196, 129, 160, 0.1);
+        }
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin: 0.6rem 0;
+        }
+        .rule-table td, .rule-table th {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid rgba(200, 150, 170, 0.1);
+            vertical-align: top;
+        }
+        .rule-table th {
+            background: rgba(50, 30, 38, 0.4);
+            color: #dbbacc;
+            font-weight: 500;
+            text-align: left;
+        }
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(30, 18, 24, 0.9);
+            border: 1px solid #c481a0;
+            border-radius: 12px;
+            padding: 0.8rem 1.5rem;
+            color: #f0dde6;
+            font-size: 0.85rem;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.4s;
+            pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .print-btn {
+            background: rgba(40, 25, 32, 0.5);
+            border: 1px solid #7a5464;
+            border-radius: 20px;
+            padding: 0.3rem 1.2rem;
+            color: #b08899;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-left: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .print-btn:hover {
+            background: rgba(60, 35, 45, 0.6);
+            border-color: #c481a0;
+            color: #f0dde6;
+        }
+        .email-btn {
+            background: rgba(40, 25, 32, 0.5);
+            border: 1px solid #7a5464;
+            border-radius: 20px;
+            padding: 0.3rem 1.2rem;
+            color: #b08899;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .email-btn:hover {
+            background: rgba(60, 35, 45, 0.6);
+            border-color: #c481a0;
+            color: #f0dde6;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        @media print {
+            .print-btn, .email-btn, .toast, .bg-effect, .floating-hearts, #password-overlay, .sparkle-overlay { display: none !important; }
+            body { background: white; padding: 0; margin: 0; color: #1a1a1a; font-size: 11pt; line-height: 1.5; }
+            .contract-wrapper { 
+                background: white !important; backdrop-filter: none !important; box-shadow: none !important; 
+                border: none !important; border-radius: 0 !important; padding: 0.5in !important; 
+                max-width: 100% !important; display: block !important;
+            }
+            .contract-content { max-height: none !important; overflow: visible !important; padding: 0 !important; }
+            .main-header { border-bottom: 2px solid #2a1a24 !important; padding-bottom: 10px !important; margin-bottom: 16px !important; }
+            .main-header .title-group h1 { -webkit-text-fill-color: #2a1a24 !important; color: #2a1a24 !important; background: none !important; font-size: 22pt !important; }
+            .logo-img { max-height: 70px !important; display: inline-block !important; }
+            .card-rule { background: #f8f4f6 !important; border-left: 3px solid #9f6a80 !important; color: #1a1a1a; padding: 0.4rem 1rem !important; margin: 0.4rem 0 !important; page-break-inside: avoid; }
+            .rule-item { background: #f5f0f2 !important; border: 1px solid #ddd !important; page-break-inside: avoid; }
+            .signature-block { background: #f5f0f2 !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+            .section { border-top: 1px solid #ddd !important; margin-top: 1.2rem !important; padding-top: 1rem !important; }
+            .section-title { color: #1a1a1a !important; }
+            .section-title i { color: #9f6a80 !important; }
+            .toy-table td, .toy-table th { border-color: #ccc !important; }
+            .toy-table th { background: #eee !important; color: #1a1a1a !important; }
+            .rule-table td, .rule-table th { border-color: #ccc !important; }
+            .rule-table th { background: #eee !important; color: #1a1a1a !important; }
+            .badge { background: #ddd !important; color: #1a1a1a !important; }
+            .highlight { background: #eee !important; color: #1a1a1a !important; }
+            .editable-field { border-bottom: 1px solid #aaa !important; background: transparent !important; color: #1a1a1a !important; }
+            .editable-field:focus { box-shadow: none !important; }
+            .final-note { color: #1a1a1a !important; border-top-color: #ddd !important; }
+            .footer-note { color: #555; border-top: 1px solid #ccc !important; }
+            .small-meta, .subhead { color: #555 !important; }
+            #print-header, #print-footer { display: none !important; }
+            .page-number::after { content: " – Page " counter(page); }
+            .page-break { page-break-after: always; border: none !important; margin: 0 !important; padding: 0 !important; height: 0; display: block; }
+        }
+        #print-header, #print-footer { display: none; }
+
+        /* Email modal styles */
+        .email-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(10, 6, 8, 0.92);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .email-modal.active { display: flex; }
+        .email-modal-box {
+            background: rgba(30, 18, 24, 0.95);
+            border: 1px solid rgba(200, 130, 160, 0.3);
+            border-radius: 2rem;
+            padding: 2rem 2.2rem;
+            max-width: 780px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+        }
+        .email-modal-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: #f0dde6;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .email-modal-box .close-modal {
+            background: none;
+            border: none;
+            color: #b08899;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-left: auto;
+            transition: 0.3s;
+        }
+        .email-modal-box .close-modal:hover { color: #f0dde6; transform: rotate(90deg); }
+        .email-modal-box .modal-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(200, 150, 170, 0.15);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .email-modal-box textarea {
+            background: rgba(20, 12, 16, 0.7);
+            border: 1px solid #5e3f4b;
+            border-radius: 16px;
+            padding: 1rem;
+            color: #f0e6ea;
+            font-family: 'Inter', monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+            min-height: 300px;
+            width: 100%;
+            outline: none;
+            flex: 1;
+        }
+        .email-modal-box textarea:focus {
+            border-color: #c481a0;
+            box-shadow: 0 0 16px rgba(196, 129, 160, 0.15);
+        }
+        .email-modal-box .copy-btn {
+            background: linear-gradient(145deg, #8f4f6b, #6a3b4f);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #fcf3f7;
+            cursor: pointer;
+            transition: 0.25s;
+            margin-top: 1rem;
+            align-self: flex-end;
+            font-size: 0.9rem;
+        }
+        .email-modal-box .copy-btn:hover {
+            transform: scale(1.02);
+            background: linear-gradient(145deg, #a05f7a, #7a445b);
+        }
+        .email-modal-box .copy-feedback {
+            color: #c481a0;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            min-height: 1.5rem;
+        }
+        .email-modal-box .subject-line {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .email-modal-box .subject-line label {
+            color: #c9a8b8;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .email-modal-box .subject-line input {
+            background: rgba(20, 12, 16, 0.7);
+            border: 1px solid #5e3f4b;
+            border-radius: 60px;
+            padding: 0.5rem 1.2rem;
+            color: #f0e6ea;
+            font-size: 0.9rem;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+        }
+        .email-modal-box .subject-line input:focus {
+            border-color: #c481a0;
+            box-shadow: 0 0 12px rgba(196, 129, 160, 0.15);
+        }
+        .email-subject-auto {
+            color: #b08899;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        /* ============================================================ */
+        /* ---------- RESPONSIVE: MOBILE / TABLET / DESKTOP ---------- */
+        /* ============================================================ */
+
+        /* ---------- Global: no horizontal scroll ---------- */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* ---------- Tablet / small laptop (<= 1100px) ---------- */
+        @media (max-width: 1100px) {
+            .contract-wrapper {
+                padding: 2.2rem 1.8rem 2.4rem;
+                border-radius: 2rem;
+            }
+            .main-header .title-group h1 {
+                font-size: 2rem;
+            }
+            .logo-img {
+                max-height: 75px;
+            }
+            .section-title {
+                font-size: 1.35rem;
+            }
+            .section {
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* ---------- Tablet (<= 850px) ---------- */
+        @media (max-width: 850px) {
+            body {
+                padding: 1.5rem 1rem;
+                align-items: flex-start;
+            }
+            .contract-wrapper {
+                padding: 1.8rem 1.4rem 2rem;
+                border-radius: 1.6rem;
+            }
+            .contract-content {
+                max-height: none;
+                overflow-y: visible;
+                padding-right: 0;
+            }
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .main-header .title-group h1 {
+                font-size: 1.7rem;
+                line-height: 1.25;
+            }
+            .main-header .title-group .subhead {
+                flex-direction: column;
+                gap: 0.3rem;
+                font-size: 0.9rem;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .logo-img {
+                max-height: 65px;
+            }
+            .section-title {
+                font-size: 1.25rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+            .rule-item {
+                padding: 0.7rem 1rem;
+            }
+            .toy-table,
+            .rule-table {
+                font-size: 0.78rem;
+            }
+            .toy-table td,
+            .toy-table th,
+            .rule-table td,
+            .rule-table th {
+                padding: 0.4rem 0.5rem;
+            }
+            .signature-block {
+                padding: 1.4rem;
+                gap: 1.2rem;
+            }
+            .password-box {
+                padding: 2rem 1.8rem;
+                border-radius: 1.6rem;
+            }
+        }
+
+        /* ---------- Phones (<= 550px) ---------- */
+        @media (max-width: 550px) {
+            body {
+                padding: 0.8rem 0.5rem;
+                align-items: flex-start;
+            }
+            .contract-wrapper {
+                padding: 1.2rem 0.9rem 1.5rem;
+                border-radius: 1.2rem;
+            }
+            .main-header {
+                padding-bottom: 0.6rem;
+                margin-bottom: 1.2rem;
+            }
+            .main-header .title-group h1 {
+                font-size: 1.25rem;
+                letter-spacing: 0.2px;
+                line-height: 1.3;
+            }
+            .main-header .title-group .subhead {
+                font-size: 0.78rem;
+                gap: 0.25rem;
+            }
+            .header-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            .logo-img {
+                max-height: 55px;
+                align-self: flex-start;
+            }
+            .print-btn,
+            .email-btn {
+                margin-left: 0;
+                justify-content: center;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                font-size: 0.78rem;
+            }
+            .section {
+                margin-top: 1.6rem;
+                padding-top: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.05rem;
+                gap: 0.4rem;
+                line-height: 1.4;
+            }
+            .section-title i {
+                font-size: 1rem;
+            }
+            .card-rule {
+                padding: 0.7rem 0.9rem;
+                border-radius: 0 10px 10px 0;
+                font-size: 0.82rem;
+                line-height: 1.55;
+                margin: 0.55rem 0;
+            }
+            .highlight {
+                padding: 0.1rem 0.4rem;
+                font-size: 0.8rem;
+            }
+            .badge {
+                font-size: 0.68rem;
+                padding: 0.1rem 0.7rem;
+                margin-right: 0.3rem;
+            }
+            .rule-item {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+            .grid-2col {
+                gap: 0.7rem;
+                margin: 0.6rem 0;
+            }
+            /* Make tables scroll horizontally instead of squishing */
+            .contract-content table.toy-table,
+            .contract-content table.rule-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.72rem;
+            }
+            .contract-content table.toy-table tr,
+            .contract-content table.rule-table tr {
+                display: table-row;
+            }
+            .toy-table td,
+            .toy-table th,
+            .rule-table td,
+            .rule-table th {
+                padding: 0.4rem 0.5rem;
+                white-space: normal;
+                min-width: 80px;
+            }
+            /* For rule tables keep first col narrow */
+            .rule-table td:first-child,
+            .rule-table th:first-child {
+                min-width: 55px;
+            }
+            .editable-field,
+            .editable-textarea {
+                font-size: 0.82rem;
+                min-width: 90px;
+                padding: 0.35rem 0.5rem;
+            }
+            .editable-field-lg {
+                min-width: 140px;
+            }
+            .editable-field-xl {
+                min-width: 180px;
+            }
+            .editable-field-sm {
+                min-width: 60px;
+            }
+            .signature-block {
+                padding: 1.1rem;
+                border-radius: 14px;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .signature-line {
+                min-width: 100%;
+                width: 100%;
+            }
+            .signature-line .line {
+                width: 100%;
+                max-width: 180px;
+            }
+            .final-note {
+                font-size: 0.88rem;
+                padding-top: 1.2rem;
+                margin-top: 1.4rem;
+                line-height: 1.55;
+            }
+            .footer-note {
+                font-size: 0.78rem;
+                padding-top: 1rem;
+                margin-top: 1.6rem;
+                line-height: 1.5;
+            }
+            .small-meta {
+                font-size: 0.72rem;
+            }
+            /* Password box */
+            .password-box {
+                padding: 1.6rem 1.2rem;
+                border-radius: 1.2rem;
+                max-width: 95%;
+            }
+            .password-box h2 {
+                font-size: 1.35rem;
+            }
+            .password-box p {
+                font-size: 0.8rem;
+                margin-bottom: 1.2rem;
+            }
+            .password-input-group .input-wrapper input {
+                padding: 0.75rem 1rem;
+                padding-right: 3rem;
+                font-size: 16px;
+            }
+            .password-input-group button {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+            .lock-icon {
+                font-size: 2.8rem;
+            }
+            .hint-text {
+                font-size: 0.68rem;
+                line-height: 1.5;
+            }
+            /* Email modal */
+            .email-modal {
+                padding: 0.7rem;
+            }
+            .email-modal-box {
+                padding: 1.2rem 1rem;
+                border-radius: 1.2rem;
+                max-height: 92vh;
+            }
+            .email-modal-box h3 {
+                font-size: 1.05rem;
+            }
+            .email-modal-box .modal-header {
+                padding-bottom: 0.6rem;
+                margin-bottom: 0.8rem;
+            }
+            .email-modal-box .subject-line {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.4rem;
+            }
+            .email-modal-box .subject-line label {
+                font-size: 0.78rem;
+            }
+            .email-modal-box .subject-line input {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.9rem;
+                min-width: 0;
+                width: 100%;
+            }
+            .email-modal-box textarea {
+                min-height: 200px;
+                font-size: 0.72rem;
+                padding: 0.8rem;
+                border-radius: 12px;
+            }
+            .email-modal-box .copy-btn {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.85rem;
+                width: 100%;
+                align-self: stretch;
+                text-align: center;
+            }
+            .email-subject-auto {
+                font-size: 0.7rem;
+            }
+            .toast {
+                right: 12px;
+                left: 12px;
+                bottom: 16px;
+                font-size: 0.78rem;
+                padding: 0.7rem 1rem;
+                text-align: center;
+            }
+        }
+
+        /* ---------- Very small phones (<= 380px) ---------- */
+        @media (max-width: 380px) {
+            .contract-wrapper {
+                padding: 1rem 0.7rem 1.2rem;
+                border-radius: 1rem;
+            }
+            .main-header .title-group h1 {
+                font-size: 1.05rem;
+            }
+            .main-header .title-group .subhead {
+                font-size: 0.72rem;
+            }
+            .section-title {
+                font-size: 0.95rem;
+            }
+            .card-rule {
+                font-size: 0.78rem;
+                padding: 0.6rem 0.8rem;
+            }
+            .rule-item {
+                font-size: 0.75rem;
+            }
+            .editable-field,
+            .editable-textarea {
+                font-size: 0.78rem;
+                min-width: 75px;
+            }
+            .password-box {
+                padding: 1.4rem 1rem;
+            }
+            .password-box h2 {
+                font-size: 1.15rem;
+            }
+            .email-modal-box h3 {
+                font-size: 0.95rem;
+            }
+            .email-modal-box textarea {
+                font-size: 0.68rem;
+            }
+        }
+
+        /* ---------- Landscape phones (short height) ---------- */
+        @media (max-height: 520px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+                padding: 0.6rem;
+            }
+            .contract-wrapper {
+                padding: 1rem 1.2rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+            .contract-content {
+                max-height: none;
+            }
+            .main-header {
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.6rem;
+            }
+            .main-header .title-group h1 {
+                font-size: 1.15rem;
+            }
+            .header-actions {
+                width: auto;
+                flex-direction: row;
+            }
+            .print-btn,
+            .email-btn {
+                width: auto;
+                font-size: 0.72rem;
+                padding: 0.35rem 0.8rem;
+            }
+            .logo-img {
+                max-height: 45px;
+            }
+            .section {
+                margin-top: 1.2rem;
+                padding-top: 0.9rem;
+            }
+            .password-box {
+                padding: 1.2rem 1.5rem;
+                max-height: 95vh;
+                overflow-y: auto;
+            }
+            .password-box h2 {
+                font-size: 1.15rem;
+            }
+            .lock-icon {
+                font-size: 2.2rem;
+            }
+            .email-modal-box {
+                max-height: 95vh;
+                padding: 1rem 1.2rem;
+            }
+            .email-modal-box textarea {
+                min-height: 160px;
+            }
+        }
+
+        /* ---------- Touch device improvements ---------- */
+        @media (hover: none) and (pointer: coarse) {
+            .print-btn:hover,
+            .email-btn:hover,
+            .password-input-group button:hover {
+                transform: none;
+            }
+            .print-btn:active,
+            .email-btn:active,
+            .password-input-group button:active {
+                transform: scale(0.97);
+            }
+            .print-btn,
+            .email-btn {
+                min-height: 38px;
+            }
+            .password-input-group button {
+                min-height: 44px;
+            }
+            /* Bigger checkboxes for touch */
+            input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* ---------- Prevent iOS auto-zoom on input focus ---------- */
+        @media (max-width: 550px) {
+            input, button, select, textarea {
+                font-size: 16px;
+            }
+        }
+
+        /* ---------- Print responsive tweaks ---------- */
+        @media print {
+            .contract-wrapper {
+                padding: 0.4in !important;
+            }
+            .main-header .title-group h1 {
+                font-size: 18pt !important;
+            }
+            .section-title {
+                font-size: 14pt !important;
+            }
+            .card-rule {
+                font-size: 10pt !important;
+                padding: 0.3rem 0.8rem !important;
+            }
+            .toy-table,
+            .rule-table {
+                font-size: 9pt !important;
+            }
+            .toy-table td,
+            .toy-table th,
+            .rule-table td,
+            .rule-table th {
+                padding: 4px 6px !important;
+            }
+            /* Prevent table overflow on print */
+            .toy-table,
+            .rule-table {
+                table-layout: auto !important;
+                word-break: break-word !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effect">
+        <div class="floating-hearts">
+            <i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i>
+            <i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i>
+            <i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i><i class="fas fa-heart heart"></i>
+        </div>
+    </div>
+    <div class="sparkle-overlay"></div>
+
+    <div id="password-overlay">
+        <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        <div class="password-box">
+            <h2>Deep & Honey</h2>
+            <p><i class="fas fa-venus-mars" style="margin-right: 8px;"></i> enter the key</p>
+            <div class="password-input-group">
+                <div class="input-wrapper">
+                    <input type="password" id="passwordInput" placeholder="•••••••••••••" autofocus>
+                    <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                        <i class="fas fa-eye" id="toggleIcon"></i>
+                    </button>
+                </div>
+                <button id="unlockBtn"><i class="fas fa-unlock-alt" style="margin-right: 8px;"></i> unlock contract</button>
+                <div id="errorMsg" class="error-msg"></div>
+            </div>
+            <div class="hint-text">
+                <i class="fas fa-lightbulb"></i> Hint: Our pet name + @ + the Date & Month we met + @
+            </div>
+        </div>
+    </div>
+
+    <div class="contract-wrapper" id="contractWrapper" style="display: none;">
+        <div class="contract-content">
+            <!-- MAIN CONTENT -->
+            <div class="main-header">
+                <div class="title-group">
+                    <h1>THE DYNAMIC {BDSM} PLAY CONTRACT</h1>
+                    <div class="subhead">
+                        <span><strong>Deep</strong> (Dominant / Top) & <strong>Honey</strong> (Submissive / Bottom)</span>
+                        <span class="small-meta"><i class="far fa-calendar-alt"></i> 30<sup>th</sup> July, 2026 · ♾️ INFINITY</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <img src="https://drive.google.com/thumbnail?id=1eoI5L95RQxWzs0yaDrFMtst2FFsbK_Ny&sz=w200" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+                    <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> Print / PDF</button>
+                    <button class="email-btn" id="openEmailModalBtn"><i class="fas fa-envelope"></i> Email HTML</button>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 1 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-hand-holding-heart"></i> 1. The Core Agreement</div>
+                <div class="card-rule"><strong>Deep's Role:</strong> I, Deep, agree to lead with confidence, care, and control. I will push Honey's limits, but I will never break her spirit. My pleasure comes from her willing surrender.</div>
+                <div class="card-rule"><strong>Honey's Role:</strong> I, Honey, agree to surrender my control willingly. I trust Deep completely. My pleasure comes from serving him and pleasing him.</div>
+                <div class="card-rule"><strong>Shared Goal:</strong> We both agree that this experience is about connection, trust, and mutual pleasure. We are partners exploring power dynamics for fun and intimacy.</div>
+            </div>
+
+            <!-- ===== SECTION 2 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-shield-alt"></i> 2. The Safety Words</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.5rem 0;">
+                    <span class="badge" style="background:#1f4f3a;">🟢 GREEN</span> "I love this, keep going."
+                    <span class="badge" style="background:#7a5f2e;">🟡 YELLOW</span> "Slow down or ease up. I'm close to my limit, but I don't want to stop."
+                    <span class="badge" style="background:#6f2a3a;">🔴 RED</span> "STOP IMMEDIATELY. Scene is over. No questions asked."
+                </div>
+                <div class="card-rule"><i class="fas fa-hand-peace"></i> <strong>Deep's Safe Word:</strong> Deep also has the right to use "RED" if he feels uncomfortable, overwhelmed, or needs to stop for any reason. Both partners' safety matters equally.</div>
+                <div class="card-rule"><i class="fas fa-hand-peace"></i> <strong>Non-Verbal Safe Signal:</strong> If Honey cannot speak (e.g., gagged, in subspace, or overwhelmed), she will use <strong>two sharp taps</strong> on Deep's body or the nearest surface to signal "YELLOW" and <strong>three sharp taps</strong> to signal "RED."</div>
+                <div class="card-rule"><i class="fas fa-clock"></i> <strong>Check-In Rule:</strong> Deep will pause every 15-20 minutes to ask, <strong>"Color?"</strong> Honey must respond with GREEN, YELLOW, or RED to confirm she is still doing well.</div>
+            </div>
+
+            <!-- ===== SECTION 3 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-gavel"></i> 3. Honey's Rules</div>
+                <div class="card-rule"><strong>As the submissive, Honey agrees to:</strong></div>
+                <div class="grid-2col">
+                    <div class="rule-item"><strong>1. Address:</strong> Call Deep <span class="highlight">"Baby"</span> or <span class="highlight">"Daddy"</span> during playtime.</div>
+                    <div class="rule-item"><strong>2. Eye Contact:</strong> When receiving an order, Honey must look Deep in the eyes and say, <span class="highlight">"Yes, Baby,"</span> before obeying.</div>
+                    <div class="rule-item"><strong>3. Clothing:</strong> Honey will wear only what Deep chooses for her (e.g., lingerie, his shirt, or nothing at all).</div>
+                    <div class="rule-item"><strong>4. Permission:</strong> Honey must ask permission before touching herself or before using the bathroom.</div>
+                    <div class="rule-item"><strong>5. Gratitude:</strong> After every orgasm Honey receives, she must say, <span class="highlight">"Thank you, Baby."</span></div>
+                    <div class="rule-item"><strong>6. Hydration:</strong> Honey must drink at least one full glass of water every hour during play to stay hydrated.</div>
+                    <div class="rule-item"><strong>7. Honesty:</strong> Honey agrees to be honest about her feelings, limits, and comfort at all times — even if it feels awkward to speak up.</div>
+                    <div class="rule-item"><strong>8. Acceptance of Marks:</strong> Honey agrees to receive and wear the marks Deep gives her — including hickeys, bites, and hard spanks on her hips — as symbols of their connection and her submission.</div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 4 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-crown"></i> 4. Deep's Responsibilities</div>
+                <div class="card-rule"><strong>As the Dominant, Deep agrees to:</strong></div>
+                <div class="grid-2col">
+                    <div class="rule-item"><strong>1. Protection:</strong> Deep will not do anything that causes physical or emotional harm.</div>
+                    <div class="rule-item"><strong>2. Praise:</strong> Deep will give Honey at least one genuine compliment every hour (e.g., "You look beautiful on your knees," or "You please me well").</div>
+                    <div class="rule-item"><strong>3. Aftercare:</strong> After the scene ends, Deep will hold Honey, cover her with a blanket, get her water, and tell her she is loved.</div>
+                    <div class="rule-item"><strong>4. Limits:</strong> Deep will not pressure Honey into any of her Hard Limits (see below).</div>
+                    <div class="rule-item"><strong>5. Patience:</strong> Deep agrees to be patient if Honey needs extra time to process, respond, or gather her courage.</div>
+                    <div class="rule-item"><strong>6. Self-Awareness:</strong> Deep agrees to check in with himself too — if he is tired, frustrated, or not in the right headspace, he will pause or stop the scene.</div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 5 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-dice-d6"></i> 5. The Play Menu</div>
+                <div class="card-rule">
+                    <span class="inline-check"><input type="checkbox" checked> Sensory Play: Blindfolds, ice cubes, or wax.</span>
+                    <span class="inline-check"><input type="checkbox" checked> Spanking: Using hands only or implements like a paddle/strap.</span>
+                </div>
+                <div class="card-rule">➕ Deep will deliver hard spanks on Honey's hips as part of their play — these marks are desired and consented to.</div>
+                <div class="card-rule">
+                    <span class="inline-check"><input type="checkbox" checked> Restraints: Silk ties or Handcuffs.</span>
+                    <span class="inline-check"><input type="checkbox" checked> Service: Honey will serve Deep his drink/food while kneeling.</span>
+                    <span class="inline-check"><input type="checkbox" checked> Orgasm Control: Deep decides when and if Honey gets to cum.</span>
+                    <span class="inline-check"><input type="checkbox" checked> Verbal Teasing: Deep will whisper dirty things to make Honey blush.</span>
+                </div>
+                <div class="card-rule"><span class="badge">🔥</span> <strong>BONUS:</strong> Mention that I will make you squirt. 🔥</div>
+                <div class="card-rule">📍 <strong>Location of Play:</strong> The scene will take place in the following location(s): <span class="highlight">Hotel room</span> (e.g., bedroom, living room, hotel room).</div>
+                <div class="card-rule">📸 <strong>Photography / Recording:</strong> Taking photos or videos <span class="inline-check"><input type="checkbox"> IS allowed</span> <span class="inline-check"><input type="checkbox" checked> IS NOT allowed</span> during the scene. If allowed, they will be deleted immediately after the contract ends unless both agree otherwise.</div>
+                <div class="card-rule">🧹 <strong>Cleanup:</strong> After the scene ends, both partners agree to help clean up any toys, props, or mess made during play.</div>
+            </div>
+
+            <!-- ===== SECTION 6 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-ban"></i> 6. Hard Limits (ABSOLUTELY FORBIDDEN)</div>
+                <div class="card-rule">• No blood play.</div>
+                <div class="card-rule">• No permanent marks except the bites and the hickey or bruises — which Deep WILL give to Honey during play (hickey, bites, and hard spanks on the hips). These are expected and welcomed, not forbidden. Anything beyond these is not allowed.</div>
+                <div class="card-rule">• No involving other people.</div>
+                <div class="card-rule">• No financial control.</div>
+                <div class="card-rule">• No scat.</div>
+                <div class="card-rule">• Anything that feels humiliating instead of fun.</div>
+                <div class="card-rule">➕ <strong>No substance use:</strong> Neither partner will be under the influence of alcohol or drugs during the scene (prescription medication excepted).</div>
+                <div class="card-rule">➕ <strong>No breath play:</strong> No choking, suffocation, or restricting airflow.</div>
+                <div class="card-rule">➕ <strong>No needle play:</strong> No piercing or injecting anything into the skin.</div>
+                <div class="card-rule">➕ <strong>No fire play:</strong> No candles, flames, or burning.</div>
+            </div>
+
+            <!-- ===== SECTION 7 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-gift"></i> 7. The Reward System</div>
+                <div class="card-rule"><strong>If Honey obeys all her rules perfectly, she earns:</strong></div>
+                <div class="card-rule">• A Full Body Massage from Deep.</div>
+                <div class="card-rule">• A "Spa Night" where Deep washes her hair and bathes her.</div>
+                <div class="card-rule">• An extra orgasm of her choice.</div>
+                <div class="card-rule"><strong>If Deep breaks his responsibilities (e.g., forgets Aftercare), he owes Honey:</strong></div>
+                <div class="card-rule">• A Foot Rub and he must cook her favorite dinner.</div>
+                <div class="card-rule">➕ If both partners follow all rules perfectly: They will celebrate with a special date night of their choice (e.g., fancy dinner, movie night, or weekend getaway).</div>
+                <div class="card-rule">➕ If either partner uses the "RED" word: There is no punishment. Using "RED" is a sign of trust and self-awareness, and it will be met with immediate aftercare and appreciation for speaking up.</div>
+            </div>
+
+            <!-- ===== SECTION 7.5 - FREE USE ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-heart"></i> 7.5 The Free Use & Romantic Recompense Clause</div>
+                <div class="card-rule">This clause establishes Deep's right to access Honey freely, and Honey's romantic obligation if she denies that access without a valid reason.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.1 What Is Free Use?</strong><br>"Free Use" means that Deep may initiate kissing, touching, intimacy, or sex with Honey at ANY time, in ANY private setting, WITHOUT having to ask for permission first.</div>
+                <div class="card-rule">• <strong>This applies:</strong> Whether they are at home, on vacation, or in any private space where they are alone.</div>
+                <div class="card-rule">• <strong>This does NOT apply:</strong> In public, in front of others, or in situations where Honey is genuinely unable to consent (e.g., asleep, sick, or emotionally distressed).</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.2 Honey's Promise</strong><br>I, Honey, willingly and joyfully agree to welcome Deep's advances with warmth, playfulness, or surrender.</div>
+                <div class="card-rule">• I will not push him away or make him "jump through hoops" unless I am physically unwell, exhausted, or emotionally overwhelmed.</div>
+                <div class="card-rule">• I will use our safe word ("YELLOW" or "RED") if I genuinely cannot engage — and that will ALWAYS be respected with NO penalty.</div>
+                <div class="card-rule">• I understand that this is a gift of trust, not a burden, and I give it freely because I love my husband and desire him.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.3 Deep's Promise</strong><br>I, Deep, agree to cherish this gift and never abuse it.</div>
+                <div class="card-rule">• I will never use this access to hurt, humiliate, or ignore Honey's boundaries.</div>
+                <div class="card-rule">• I will always respect our Hard Limits (as listed in Section 6) — nothing changes just because Free Use is in effect.</div>
+                <div class="card-rule">• I will show gratitude every time Honey welcomes me — a kiss on her forehead, a whispered "thank you, my Honey," or a warm cuddle afterward.</div>
+                <div class="card-rule">• I will never treat this clause as a "weapon" or a "gotcha" moment. This is about love, connection, and desire — not control or entitlement.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.4 The "Soft No" & The Romantic Penalty</strong><br>There will be times when Honey is simply not in the mood, and that is completely okay. However: If Honey says "NO" to Deep's advance when she COULD have said "YES" — meaning she is NOT sick, NOT exhausted, NOT emotionally overwhelmed, and has NOT used a safe word — she agrees to make it up to him romantically within 24 hours. This is NOT a punishment. This is a romantic reconnection ritual — a way to say "I couldn't give you my body right now, but here is my heart instead."</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.5 Honey's Romantic "Payment" Options (She Chooses One)</strong><br>If Honey denies Deep's free use without a valid reason, she must choose ONE of the following romantic gestures to give him within 24 hours:</div>
+                <div class="card-rule"><strong>Option 1: The Full Attention Hour</strong><br>• Honey will put her phone away, sit on Deep's lap, look him in the eyes, and let him talk about anything he wants — his day, his dreams, his frustrations.<br>• She will stroke his hair and listen without interrupting for a full 60 minutes.<br>• No distractions. No judgment. Just her full, loving attention.</div>
+                <div class="card-rule"><strong>Option 2: The "You First" Evening</strong><br>• Honey will give Deep a full-body massage — shoulders, back, legs, feet — using warm oil, candles, and his favorite music.<br>• There will be ZERO expectation of sex afterward. This is purely about his relaxation and pleasure.<br>• She will not rush. She will not ask for anything in return.</div>
+                <div class="card-rule"><strong>Option 3: The "Honey's Choice" Date</strong><br>• Honey will plan a surprise date night entirely around Deep's favorite things — his favorite restaurant, his favorite movie, his favorite outfit on her.<br>• She will not complain about any of it — not even once.<br>• The entire evening is designed to make him feel seen, loved, and celebrated.</div>
+                <div class="card-rule"><strong>Option 4: The Love Letter on Skin</strong><br>• Honey will take a lipstick or body-safe marker and write a list of 5 SPECIFIC things she loves about Deep on his chest or arm.<br>• Not generic things like "you're nice" — but REAL things like "I love the way you hold my waist in the kitchen" or "I love the sound of your laugh when I tease you."<br>• She will read them aloud to him before they sleep — slowly, lovingly, with eye contact.</div>
+                <div class="card-rule"><strong>Option 5: The "Queen Serves Her King" Morning</strong><br>• The next morning, Honey will wake up 20 minutes early, make Deep's coffee/tea exactly how he likes it, and bring it to him in bed.<br>• She will then give him slow, lazy, loving oral attention before he starts his day — just because.<br>• No rush. No pressure. Just a warm, intimate start to his morning.</div>
+                <div class="card-rule"><strong>Option 6: The "Deep & Honey" Cuddle Pledge</strong><br>• Honey will strip down, get under the covers with Deep, and press her entire body against his — skin to skin — for 30 full minutes.<br>• She will whisper everything she loves about him, while tracing lazy circles on his chest with her fingers.<br>• No sex. Just pure, naked, intimate closeness.</div>
+                <div class="card-rule"><strong>Option 7: Deep's Choice (Bonus Option)</strong><br>• If Honey cannot decide, or if Deep has a specific need that day, Deep may choose ONE of the above options for Honey to perform.<br>• However, Deep must choose with love and care — not to "punish" her, but to receive the connection he needs.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.6 When the Penalty Does NOT Apply</strong><br>Honey is NOT required to give Deep anything romantic in return if:</div>
+                <div class="card-rule">• She uses their safe word ("YELLOW" or "RED") because she is truly sick, exhausted, or emotionally drained.</div>
+                <div class="card-rule">• Deep initiated in a way that felt demanding, unloving, or outside their agreed limits — this agreement is about mutual respect, not entitlement.</div>
+                <div class="card-rule">• They have already been intimate twice that day — let's be realistic and respectful of Honey's body.</div>
+                <div class="card-rule">• She is on her period or experiencing physical discomfort (unless they have separately agreed otherwise).</div>
+                <div class="card-rule">• She is in the middle of an important task (e.g., work call, cooking, driving) and cannot pause immediately — in which case, she may say "Not right now, but ask me again in 30 minutes."</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.7 Limit on Invoking the Penalty</strong><br>• Honey may only be required to give ONE romantic "payment" per week. This prevents the clause from becoming overwhelming or feeling like a "debt system."<br>• If Honey denies Deep more than once in a week, Deep may choose to:<br>o Let it go with grace and love (because marriage is bigger than a contract), OR<br>o Request ONE romantic "payment" that combines elements from the options above (e.g., 30-minute massage + morning coffee service).</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.8 Deep's Right to Waive the Penalty</strong><br>Deep may waive the penalty at any time, for any reason, simply by saying:<br>• "It's okay, my Honey. I just want to hold you tonight."<br>• "Forget the clause. Come here and let me cuddle you."<br>Waiving the penalty is a loving act — it shows Honey that Deep values HER over the rules. Deep is encouraged to waive the penalty often, so this never feels like a "punishment system."</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.9 Intent of This Clause</strong><br>This clause exists to bring Deep and Honey CLOSER — not to create pressure, guilt, or resentment.<br>• It is a romantic safety net, ensuring that even when Honey says "no," Deep still feels desired and cherished.<br>• It is a vulnerability bridge, giving Honey a way to say "I can't give you my body right now, but here is my heart instead."<br>• It is a playfulness tool, adding excitement and romance to their marriage — not a legal obligation.<br>If either partner ever feels this clause is harming their marriage, they will pause, discuss, and rewrite it together — because their love is bigger than any clause.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>7.5.10 Free Use & Romantic Recompense Sign-Off</strong><br>We both agree to the Free Use & Romantic Recompense Clause and understand that:<br>• Free Use is a gift of trust, not an obligation or entitlement.<br>• The Romantic Penalty is not a punishment — it is a reconnection ritual.<br>• Using safe words ("YELLOW" or "RED") NEVER triggers the penalty.<br>Either partner may request to pause, modify, or remove this clause at any time — with love, respect, and no hard feelings.</div>
+                <div class="card-rule">Deep's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: 30th July, 2026. Honey's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: 30th July, 2026.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a; text-align: center; font-style: italic; font-size: 1.1rem;">Now go be the Deep that your Honey adores. ❤️</div>
+            </div>
+
+            <!-- ===== SECTION 8 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-heartbeat"></i> 8. Aftercare Agreement</div>
+                <div class="card-rule"><strong>When the contract ends (or when the "Red" word is used), we both agree that:</strong></div>
+                <div class="card-rule">1. The "Dom" and "Sub" roles are over.</div>
+                <div class="card-rule">2. We return to being husband and wife (Deep & Honey).</div>
+                <div class="card-rule">3. We will cuddle for at least 20 minutes.</div>
+                <div class="card-rule">4. We will talk about 1 thing we loved and 1 thing we want to try differently next time.</div>
+                <div class="card-rule">➕ <strong>Aftercare Duration:</strong> Aftercare will last at least 30 minutes or until both partners feel completely grounded and back to normal.</div>
+                <div class="card-rule">➕ <strong>Subspace Warning:</strong> If Honey goes nonverbal or seems "spacey," Deep will hold her, speak gently, and guide her back slowly with soft touch and kind words.</div>
+                <div class="card-rule">➕ <strong>Snacks:</strong> Deep will offer Honey a small snack (e.g., chocolate, fruit, or crackers) to help her blood sugar recover after intense play.</div>
+                <div class="card-rule">➕ <strong>Mark Care:</strong> After the scene, Deep will gently check all marks (hickeys, bites, and hip spanks) and apply any needed care (e.g., cold compress, lotion, or gentle kissing) to show love and attentiveness.</div>
+                <div class="card-rule">➕ <strong>Debrief Session:</strong> Within 24 hours after the contract ends, both partners will sit down for a 10-minute debrief to discuss what worked, what didn't, and what they want to explore next time.</div>
+            </div>
+
+            <!-- ===== SECTION 9 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-rings-wedding"></i> 9. Rituals & Ceremonies</div>
+                <div class="card-rule"><strong>💞 Starting Ritual:</strong> The scene will officially begin when Deep looks into Honey's eyes and asks: <strong>"Do you trust me?"</strong> Honey will respond: <strong>"Completely, Baby."</strong> This moment marks the official start of the roles and the beginning of our shared journey.</div>
+                <div class="card-rule"><strong>💞 Ending Ritual:</strong> The scene will officially end when Deep holds Honey close and says: <strong>"You are safe. You are loved. The scene is over."</strong> This moment marks the official end of the roles and the beginning of Aftercare.</div>
+                <div class="card-rule"><strong>💞 Daily Connection Ritual (For Multi-Day Contracts):</strong> Each morning during the contract period, Deep will kiss Honey's forehead and say: <strong>"You are mine to protect."</strong> Honey will kiss Deep's hand and say: <strong>"I am yours to trust."</strong> This daily ritual strengthens our bond and reminds us of our commitment to each other.</div>
+            </div>
+
+            <!-- ===== SECTION 10-11 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-book"></i> 10-11. Logs & Journals</div>
+                <div class="card-rule">📝 <strong>10. Honey's Daily Submission Log (For Multi-Day Contracts):</strong> Please go to the Log Book and update your daily submission log, feedback, and all related records.</div>
+                <div class="card-rule">📜 <strong>11. Deep's Dominant Journal (For Multi-Day Contracts):</strong> Please go to the Log Book and update your daily journal entries, feedback, and all related records.</div>
+            </div>
+
+            <!-- ===== SECTION 12 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-phone-alt"></i> 12. Emergency Contact & Medical Information</div>
+                <div class="card-rule"><strong>Emergency Contact Name:</strong> Hemangini Patel.</div>
+                <div class="card-rule"><strong>Emergency Contact Number:</strong> +91 9427588989.</div>
+                <div class="card-rule"><strong>Relationship to Honey:</strong> Mother In Law.</div>
+                <div class="card-rule"><strong>Relationship to Deep:</strong> Mother.</div>
+                <div class="card-rule"><strong>Honey's Medical Information:</strong><br>• Allergies: <input type="text" class="editable-field editable-field-lg" placeholder="Enter allergies"><br>• Any medical conditions Deep should know about: <input type="text" class="editable-field editable-field-lg" placeholder="Enter conditions"><br>• Current medications: <input type="text" class="editable-field editable-field-lg" placeholder="Enter medications"><br>• Preferred first aid: <input type="text" class="editable-field editable-field-lg" placeholder="Preferred first aid"></div>
+                <div class="card-rule"><strong>Deep's Medical Information:</strong><br>• Allergies: <input type="text" class="editable-field editable-field-lg" placeholder="Enter allergies"><br>• Any medical conditions Honey should know about: <input type="text" class="editable-field editable-field-lg" placeholder="Enter conditions"><br>• Current medications: <input type="text" class="editable-field editable-field-lg" placeholder="Enter medications"></div>
+                <div class="card-rule"><strong>General Safety:</strong><br>• Location of first aid kit: <input type="text" class="editable-field editable-field-lg" placeholder="Location"><br>• Nearest hospital / urgent care: <input type="text" class="editable-field editable-field-lg" placeholder="Hospital name"></div>
+            </div>
+
+            <!-- ===== SECTION 13 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-soap"></i> 13. Toy & Prop Cleaning Protocol</div>
+                <div class="card-rule">We both agree to keep all toys and props clean and safe for our protection.</div>
+                <div class="card-rule">• All toys and props will be cleaned before and after each scene using appropriate cleaners (e.g., toy cleaner, soap and warm water).</div>
+                <div class="card-rule">• Shared toys will be covered with condoms when applicable.</div>
+                <div class="card-rule">• Any toy that shows signs of damage or wear will not be used until replaced.</div>
+                <div class="card-rule">• Cleaning supplies are located at: <input type="text" class="editable-field editable-field-lg" placeholder="Location"></div>
+                <div class="card-rule">• We both agree to communicate immediately if a toy or prop feels unsafe or uncomfortable.</div>
+            </div>
+
+            <!-- ===== SECTION 14 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-brain"></i> 14. Subspace & Sub-Drop Awareness</div>
+                <div class="card-rule"><strong>What is Subspace?</strong> Subspace is a deeply relaxed, floaty, and euphoric state that Honey may enter during intense play. It is a beautiful sign of deep trust and surrender.</div>
+                <div class="card-rule"><strong>If Honey enters Subspace, Deep agrees to:</strong><br>• Speak slowly, gently, and lovingly<br>• Reduce intensity or pause if needed<br>• Guide Honey back slowly with soft touch and kind words<br>• Transition into Aftercare earlier if needed<br>• Reassure Honey that she is safe and loved</div>
+                <div class="card-rule"><strong>What is Sub-Drop?</strong> Sub-drop is the emotional crash that can happen hours or days after an intense scene. Both partners may experience feelings of sadness, exhaustion, or vulnerability.</div>
+                <div class="card-rule"><strong>If either partner experiences Sub-Drop, we both agree to:</strong><br>• Check in with each other the next day (and as needed)<br>• Be extra gentle, patient, and loving<br>• Offer extra cuddles, praise, and reassurance<br>• Communicate openly about how we are feeling<br>• Seek comfort in each other without judgment or shame</div>
+            </div>
+
+            <!-- ===== SECTION 15 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-expand-arrows-alt"></i> 15. Boundary Expansion Agreement</div>
+                <div class="card-rule">We both agree that growth and exploration are beautiful parts of our journey — but only when done with trust and communication.</div>
+                <div class="card-rule">• If Honey wants to try something new that is NOT on the Hard Limits list, she may ask Deep during the scene by using "YELLOW" to pause and discuss it.</div>
+                <div class="card-rule">• Deep will consider the request with care and may say: "Yes, let's try slowly and carefully," "No, not today, my love," or "Let's save it for next time and plan it properly."</div>
+                <div class="card-rule">• If Deep wants to try something new that is NOT on the Hard Limits list, he may ask Honey during the scene by using "YELLOW" to pause and discuss it.</div>
+                <div class="card-rule">• Honey will consider the request with trust and may say: "Yes, let's try slowly and carefully," "No, not today, my love," or "Let's save it for next time and plan it properly."</div>
+                <div class="card-rule">We both agree that saying "No" to something new is always okay and will never be met with disappointment or pressure.</div>
+            </div>
+
+            <!-- ===== SECTION 16 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-question-circle"></i> 16. Post-Scene Debrief Questions</div>
+                <div class="card-rule">After every scene, during our aftercare time, we will gently answer these questions together to deepen our connection and improve our future experiences.</div>
+                <div class="card-rule">1. What was your favorite moment of today's scene? (Share one beautiful memory.)</div>
+                <div class="card-rule">2. Was there anything that felt uncomfortable, too intense, or not quite right?</div>
+                <div class="card-rule">3. Did you feel safe, cared for, and loved at all times?</div>
+                <div class="card-rule">4. Is there anything you want MORE of next time?</div>
+                <div class="card-rule">5. Is there anything you want LESS of or DIFFERENT next time?</div>
+                <div class="card-rule">6. On a scale of 1-10, how would you rate today's scene overall?</div>
+                <div class="card-rule">7. How are you feeling emotionally and physically right now — in this moment?</div>
+                <div class="card-rule">8. Is there anything I can do to make you feel even more loved and cherished right now?</div>
+                <div class="card-rule">We will answer these questions honestly, gently, and without judgment. This is our time to grow closer.</div>
+            </div>
+
+            <!-- ===== SECTION 17 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-star"></i> 17. Extras & Special Requests</div>
+                <div class="card-rule"><strong>Honey's Special Requests:</strong><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 1"><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 2"><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 3"></div>
+                <div class="card-rule"><strong>Deep's Special Requests:</strong><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 1"><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 2"><br>• <input type="text" class="editable-field editable-field-lg" placeholder="Request 3"></div>
+                <div class="card-rule"><strong>Surprises Planned?</strong> <span class="inline-check"><input type="checkbox"> Yes</span> <span class="inline-check"><input type="checkbox"> No</span> (If yes, keep them a secret until the perfect moment — surprises are romantic and exciting!)</div>
+                <div class="card-rule">➕ <strong>Bonus for Surprises:</strong> If either partner plans a surprise that delights the other, they earn a bonus reward — a heartfelt handwritten love letter from their partner, expressing gratitude and admiration.</div>
+            </div>
+
+            <!-- ===== SECTION 18 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-handshake"></i> 18. Consent & Revocation Clause</div>
+                <div class="card-rule">We both enter this contract freely, willingly, and with full enthusiasm.</div>
+                <div class="card-rule">• Either partner may revoke consent at ANY time, for ANY reason, by using the "RED" safe word or simply saying "I withdraw my consent."</div>
+                <div class="card-rule">• If consent is revoked, the scene ends immediately, Aftercare begins immediately, and there will be no questions, no blame, and no guilt — only love and care.</div>
+                <div class="card-rule">• Consent given TODAY does NOT mean consent is given for TOMORROW. Each scene requires fresh, verbal, enthusiastic consent from both partners.</div>
+                <div class="card-rule">• We both understand that enthusiastic consent is the foundation of everything we do — and without it, nothing happens.</div>
+                <div class="card-rule"><strong>We both agree to honor this clause above all else.</strong></div>
+                <div class="card-rule">Deep's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Honey's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"></div>
+            </div>
+
+            <!-- ===== SECTION 19 ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-sync-alt"></i> 19. Contract Renewal & Expiration</div>
+                <div class="card-rule">This contract is valid from: 30th July, 2026. to: ♾️ FOREVER (No Expiry Date)</div>
+                <div class="card-rule">To renew this contract, both partners must agree and sign again.</div>
+                <div class="card-rule">• Renewal Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"></div>
+                <div class="card-rule">• We both agree to renew this contract with continued enthusiasm and trust.</div>
+                <div class="card-rule"><strong>Renewal Signatures:</strong><br>Deep: <input type="text" class="editable-field" placeholder="Signature"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"> Honey: <input type="text" class="editable-field" placeholder="Signature"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"></div>
+                <div class="card-rule">Since this contract is for ♾️ INFINITY, renewal is optional and only needed if both partners wish to make changes or updates to the agreement.</div>
+                <div class="card-rule">If we choose NOT to renew or to end the contract, we both agree to:<br>• Honor the end of the contract with love and gratitude<br>• Continue our husband-and-wife relationship with the same care and respect<br>• Celebrate the beautiful experience we shared together</div>
+                <div class="card-rule">➕ <strong>Bonus for Renewal:</strong> If we renew the contract, we will celebrate with a special romantic getaway (e.g., a weekend trip, a fancy dinner, or a staycation) to honor our continued commitment to each other.</div>
+            </div>
+
+            <!-- ===== SECTION 22 - SWITCHING ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-exchange-alt"></i> 22. Switching Agreement</div>
+                <div class="card-rule">We both understand that sometimes, the mood may shift, or we may want to explore the opposite dynamic. This agreement allows for safe, consensual role reversal.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.1 What Is Switching?</strong><br>Switching means that Honey may temporarily take on the Dominant role while Deep takes on the Submissive role — only if both partners enthusiastically agree. This is not a requirement — it is an option that either partner may suggest at any time.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.2 How Switching Works</strong><br>• Deep may offer the role to Honey by saying: "Would you like to lead tonight, my love?"<br>• Honey may request the role from Deep by saying: "May I take control tonight, Baby?"<br>• Either partner may say "No" to switching at any time, with no questions asked and no disappointment.<br>• If both partners agree, they will pause the scene, take 5 minutes to reset, and then begin the new dynamic.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.3 When Honey Takes Control (Her Role as Dominant)</strong><br>If Honey becomes the Dominant, she agrees to:<br>1. Lead with confidence, care, and love — just as Deep does.<br>2. Respect Deep's limits and safe words (the same GREEN, YELLOW, RED system applies).<br>3. Give Deep genuine praise and compliments during the scene.<br>4. Provide aftercare when the scene ends, just as Deep does.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.4 When Deep Surrenders (His Role as Submissive)</strong><br>If Deep becomes the Submissive, he agrees to:<br>1. Trust Honey completely, just as she trusts him.<br>2. Follow Honey's instructions with respect and willingness.<br>3. Use the safe words (GREEN, YELLOW, RED) if he needs to slow down or stop.<br>4. Communicate honestly about his feelings and limits.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.5 Rules for Switching</strong><br>• Switching is always optional — neither partner is ever required to switch.<br>• Switching can happen at the start of a scene or mid-scene (with a pause and check-in).<br>• If either partner says "No" to switching, the current dynamic continues with no pressure, no guilt, and no disappointment.<br>• The same Hard Limits (Section 6) apply no matter who is Dominant — nothing forbidden becomes allowed just because roles are reversed.<br>• The same Aftercare Agreement (Section 8) applies no matter who is Dominant — aftercare is always non-negotiable.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.6 Safe Word During Switching</strong><br>• If at any point during a switch, either partner feels uncomfortable, they may use "YELLOW" to pause and discuss, or "RED" to stop immediately.<br>• If "RED" is used during a switch, the scene ends, aftercare begins, and both partners return to being husband and wife.</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.7 How to Initiate a Switch (Romantic Ways to Ask)</strong><br><strong>Deep may say:</strong><br>• "Tonight, I want to surrender to you, my love. Will you lead me?"<br>• "I trust you completely. Would you like to be in control for a while?"<br>• "You have been so good for me. Now, I want to be good for you. Will you take charge?"<br><strong>Honey may say:</strong><br>• "Baby, I feel brave tonight. May I take care of you the way you take care of me?"<br>• "I want to try leading you, if you'll let me. Will you trust me?"<br>• "You have given me so much pleasure. Let me give you the same. May I be in control?"</div>
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>22.8 Switching Agreement Sign-Off</strong><br>We both agree to the Switching Agreement and understand that:<br>• Switching is always optional and consensual.<br>• We will never pressure each other to switch.<br>• We will always respect each other's limits, no matter who is Dominant.<br>• We will always provide aftercare, no matter who is Dominant.</div>
+                <div class="card-rule">Deep's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"> Honey's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"></div>
+            </div>
+
+            <!-- ===== SECTION 23 - TOY INVENTORY ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-tools"></i> 23. Toy Inventory & Equipment Agreement</div>
+                <div class="card-rule">This section lists all toys and equipment available for use during our scenes. We will only use toys that are ticked (☑) as "Currently Available."</div>
+                <div class="card-rule">We both agree that:<br>• Any toy not listed here cannot be used until it is added to this list and both partners consent.<br>• All toys will be cleaned before and after each use (see Section 13).<br>• Either partner may say "No" to any toy at any time, even if it is on the available list.</div>
+
+                <!-- 23.1 Impact Toys -->
+                <div style="overflow-x:auto;">
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.1 IMPACT TOYS (Spanking, Striking, or Thudding)</th></tr>
+                        <tr><td>☑ Hand / Palm</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Paddle (Leather)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Paddle (Wooden)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Paddle (Rubber)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Crop (Riding Crop)</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Flogger (Leather)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Flogger (Suede)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Cane (Thin)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Cane (Thick)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Belt</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Spatula / Kitchen Utensil</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Other: <input type="text" class="editable-field" placeholder="Specify"></td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    </table>
+
+                    <!-- 23.2 Restraints -->
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.2 RESTRAINTS & BONDAGE</th></tr>
+                        <tr><td>☑ Silk Ties / Scarves</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Velcro Cuffs</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Leather Cuffs (Wrist)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Leather Cuffs (Ankle)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Metal Handcuffs</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Rope (Cotton)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Rope (Jute / Hemp)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Rope (Silk / Synthetic)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Under-Bed Restraint System</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Spread Bar</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Hog Tie</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Gag (Ball Gag)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Gag (Bit Gag)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Gag (Ring Gag)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Blindfold</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Other: Clothes Ex. Odhani</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    </table>
+
+                    <!-- 23.3 Sensory -->
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.3 SENSORY PLAY TOYS</th></tr>
+                        <tr><td>☑ Blindfold (Silk)</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Blindfold (Leather)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Ice Cubes</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Always available"></td></tr>
+                        <tr><td>☐ Wax Play Candles (Low Temp)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Wax Play Candles (High Temp)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Feather Tickler</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Wartenberg Pinwheel</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Nipple Clamps</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Clothespins / Clamps</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Vibrating Wand</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Bullet Vibrator</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Other: <input type="text" class="editable-field" placeholder="Specify"></td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    </table>
+
+                    <!-- 23.4 Playing Cards -->
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.4 PLAYING CARDS (Our Current Toy) ♠️♥️♦️♣️</th></tr>
+                        <tr><td>☑ Playing Cards (Standard Deck)</td><td><span class="check-group"><label><input type="checkbox" checked> Yes — Currently Available</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Card flicking, throwing, sensory, edge play, games, body tracing. Special game: draw card → number of spanks or sensation type!"></td></tr>
+                    </table>
+
+                    <!-- 23.5 Orgasm Control -->
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.5 ORGASM CONTROL & SEXUAL TOYS</th></tr>
+                        <tr><td>☐ Vibrator (Bullet)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Vibrator (Wand)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Vibrator (G-Spot)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Clitoral Suction Toy</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Rabbit Vibrator</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Dildo (Silicone)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Dildo (Glass)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Dildo (Metal)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Anal Plug (Small)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Anal Plug (Medium)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Anal Plug (Large)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Anal Beads</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Cock Ring</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Strap-On Harness</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Other: <input type="text" class="editable-field" placeholder="Specify"></td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    </table>
+
+                    <!-- 23.6 Other Accessories -->
+                    <table class="toy-table">
+                        <tr><th colspan="4">23.6 OTHER TOYS & ACCESSORIES</th></tr>
+                        <tr><td>☑ Massage Oil / Lotion</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Lube (Water-Based)</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Lube (Silicone-Based)</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Condoms</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Nitrile / Latex Gloves</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☑ Mirror (for watching)</td><td><span class="check-group"><label><input type="checkbox" checked> Yes</label><label><input type="checkbox"> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                        <tr><td>☐ Timer / Hourglass</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Kneeling Pad / Cushion</td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes" value="Will buy soon"></td></tr>
+                        <tr><td>☐ Other: <input type="text" class="editable-field" placeholder="Specify"></td><td><span class="check-group"><label><input type="checkbox"> Yes</label><label><input type="checkbox" checked> No</label></span></td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    </table>
+                </div>
+
+                <!-- 23.7 Toy Expansion -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>23.7 TOY EXPANSION PLAN (For Future Purchases)</strong><br>We plan to add the following toys in the future (when we both agree and are ready):<br>• <strong>Toys we want to try:</strong> Ice cubes, handcuffs and vibrator.<br>• <strong>Toys we are curious about:</strong> The toys I know only the above what I want to try rest I don't know but I'm curious to use that too.<br>• <strong>Toys we will research together:</strong> <input type="text" class="editable-field editable-field-lg" placeholder="Research topics"><br>• <strong>Toys we agree NOT to buy (personal limits):</strong> <input type="text" class="editable-field editable-field-lg" placeholder="Personal limits"><br><br>We both agree that:<br>• New toys will only be purchased with mutual agreement and enthusiasm.<br>• Before using a new toy for the first time, we will:<br>1. Read the instructions together<br>2. Inspect the toy for safety<br>3. Discuss any concerns or limits<br>4. Start slowly and check in often<br>• If either partner feels uncomfortable with a new toy, it will not be used — no pressure, no guilt.</div>
+
+                <!-- 23.8 Sign-off -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>23.8 TOY AGREEMENT SIGN-OFF</strong><br>We both agree to the Toy Inventory & Equipment Agreement and understand that:<br>• Only toys ticked as "Yes — Currently Available" may be used.<br>• Both partners must consent to each toy before use.<br>• New toys require mutual agreement before purchase or use.<br>• Any toy can be refused at any time, for any reason.</div>
+                <div class="card-rule">Deep's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"> Honey's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"></div>
+            </div>
+
+            <!-- ===== SECTION 24 - RULES, PUNISHMENTS & BONUSES ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-list-ul"></i> 24. Rules, Punishments & Bonuses Summary</div>
+                <div class="card-rule">This section summarizes all the rules that must be followed, what happens when they are broken, and how bonuses can be earned.</div>
+
+                <!-- 24.1 Honey's Rules -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.1 HONEY'S RULES (To Be Followed At All Times)</strong></div>
+                <table class="rule-table">
+                    <tr><th>Rule Number</th><th>Rule Description</th><th>Consequence If Broken (Punishment)</th><th>Notes / Edits</th></tr>
+                    <tr><td>1</td><td>Address Deep as "Baby" or "Daddy" during playtime</td><td>10 spanks + verbal apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>2</td><td>Maintain Eye Contact when receiving an order and say "Yes, Baby" before obeying</td><td>5 spanks + repeat the order correctly</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>3</td><td>Wear only what Deep chooses (lingerie, his shirt, or nothing)</td><td>15 spanks + strip immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>4</td><td>Ask permission before touching herself</td><td>20 spanks + denied orgasm for the scene</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>5</td><td>Ask permission before using the bathroom</td><td>10 spanks + wait 5 extra minutes</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>6</td><td>Say "Thank you, Baby" after every orgasm</td><td>5 spanks + repeat gratitude properly</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>7</td><td>Hydration: Drink at least one full glass of water every hour</td><td>5 spanks + drink water immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>8</td><td>Honesty: Be honest about feelings, limits, and comfort</td><td>15 spanks + conversation about feelings</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>9</td><td>Acceptance of Marks: Receive and wear marks (hickeys, bites, hard spanks on hips) willingly</td><td>20 spanks + mark applied immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.2 Deep's Responsibilities -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.2 DEEP'S RESPONSIBILITIES (To Be Followed At All Times)</strong></div>
+                <table class="rule-table">
+                    <tr><th>Rule Number</th><th>Rule Description</th><th>Consequence If Broken (Punishment)</th><th>Notes / Edits</th></tr>
+                    <tr><td>1</td><td>Protection: Do not cause physical or emotional harm</td><td>Foot rub + cook favorite dinner + apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>2</td><td>Praise: Give at least one genuine compliment every hour</td><td>10 compliments in a row + kiss apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>3</td><td>Aftercare: Hold, cover with blanket, get water, say "I love you"</td><td>Foot rub + cook favorite dinner + extra cuddles</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>4</td><td>Limits: Do not pressure Honey into Hard Limits</td><td>20 spanks + foot rub + sincere apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>5</td><td>Patience: Be patient if Honey needs extra time</td><td>10 spanks + verbal reassurance</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>6</td><td>Self-Awareness: Pause or stop if tired, frustrated, or not in the right headspace</td><td>Foot rub + conversation about feelings</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.3 Switching Rules -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.3 SWITCHING RULES (When Roles Are Reversed)</strong></div>
+                <table class="rule-table">
+                    <tr><th>Rule Number</th><th>Rule Description</th><th>Consequence If Broken (Punishment)</th><th>Notes / Edits</th></tr>
+                    <tr><td>1</td><td>Switching is always optional — never pressure each other</td><td>10 spanks + apology + reset scene</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>2</td><td>Respect Hard Limits no matter who is Dominant</td><td>20 spanks + immediate stop + aftercare</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>3</td><td>Always provide aftercare no matter who is Dominant</td><td>30 spanks + extra aftercare session</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>4</td><td>Use Safe Words (GREEN, YELLOW, RED) during switching</td><td>10 spanks + reset scene</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.4 General Contract Rules -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.4 GENERAL CONTRACT RULES</strong></div>
+                <table class="rule-table">
+                    <tr><th>Rule Number</th><th>Rule Description</th><th>Consequence If Broken (Punishment)</th><th>Notes / Edits</th></tr>
+                    <tr><td>1</td><td>Pre-Scene Checklist: Complete before every scene</td><td>10 spanks + complete checklist immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>2</td><td>Scene Specific Agreement: Fill out Section 23 before EVERY scene</td><td>15 spanks + fill it out immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>3</td><td>Consent Revocation: Respect "RED" word immediately</td><td>20 spanks + foot rub + sincere apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>4</td><td>Use Safe Words: GREEN, YELLOW, RED must be used properly</td><td>10 spanks + practice safe words out loud</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>5</td><td>Log Book: Maintain daily logs and journals for multi-day contracts</td><td>10 spanks + complete missed entries</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>6</td><td>Rituals: Follow Starting and Ending Rituals</td><td>5 spanks + redo the ritual</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>7</td><td>Emergency Contact: Keep medical info up to date</td><td>10 spanks + update immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>8</td><td>Toy Cleaning: Clean all toys before and after use</td><td>15 spanks + clean toys immediately</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.5 Bonuses -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.5 BONUSES (Rewards For Following Rules Perfectly)</strong></div>
+                <table class="rule-table">
+                    <tr><th>Bonus Number</th><th>How To Earn</th><th>Bonus Reward</th><th>Notes / Edits</th></tr>
+                    <tr><td>1</td><td>Obey all rules perfectly for a scene</td><td>Full Body Massage from Deep</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>2</td><td>Obey all rules perfectly for a day</td><td>"Spa Night" — Deep washes her hair and bathes her</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>3</td><td>Obey all rules perfectly for a week</td><td>Extra orgasm of her choice</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>4</td><td>Go above and beyond in submission (exceptional obedience, enthusiasm, or courage)</td><td>Bonus Reward of her choice (favorite dessert, shopping trip, extra scene)</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>5</td><td>Complete daily log with honesty and detail for entire contract</td><td>Romantic dinner date of her choice</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>6</td><td>Perfect Daily Journal (Deep)</td><td>Full day of pampering from Honey</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>7</td><td>Plan a surprise that delights the other partner</td><td>Handwritten love letter expressing gratitude</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>8</td><td>Renew the contract (if applicable)</td><td>Special romantic getaway (weekend trip, fancy dinner, staycation)</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>9</td><td>Show exceptional leadership, care, or creativity (Deep)</td><td>Bonus Reward of his choice (homemade meal, full body massage, surprise scene)</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>10</td><td>Perfect submission during switching (Honey as Dominant)</td><td>Extra scene of her choice</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>11</td><td>Perfect surrender during switching (Deep as Submissive)</td><td>Full day of pampering from Honey</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>12</td><td>Follow all toy cleaning protocols perfectly</td><td>Bonus scene of choice</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>13</td><td>Never forget aftercare (Deep)</td><td>Special treat from Honey</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>14</td><td>Complete all tasks on time without reminders</td><td>Bonus orgasm</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>15</td><td>Be extra honest about feelings even when uncomfortable</td><td>Extra cuddles + verbal praise</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.6 Additional Punishments -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.6 ADDITIONAL PUNISHMENTS (For Repeated Offenses)</strong></div>
+                <table class="rule-table">
+                    <tr><th>Offense Level</th><th>Punishment</th><th>Notes / Edits</th></tr>
+                    <tr><td>First Offense</td><td>Light spanking + verbal warning</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>Second Offense</td><td>Medium spanking + verbal apology + repeated correctly</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>Third Offense</td><td>Hard spanking + denial of orgasm + written apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>Fourth Offense</td><td>Hard spanking + denial of orgasm + foot rub + written apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>Fifth Offense</td><td>Hard spanking + denial of orgasm + foot rub + cook dinner + written apology</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                    <tr><td>Repeated / Severe Offense</td><td>Hard spanking + denial of orgasm + foot rub + cook dinner + written apology + conversation about the issue + extra aftercare</td><td><input type="text" class="editable-field" placeholder="Notes"></td></tr>
+                </table>
+
+                <!-- 24.7 Punishment Execution Rules -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.7 PUNISHMENT EXECUTION RULES</strong><br>Punishments must always follow these rules:<br>• Always Safe: No punishment should ever cause emotional or physical harm.<br>• Always Consensual: The punished partner must consent to the punishment.<br>• Always Aftercare: After any punishment, aftercare must be given.<br>• No Punishment for Safe Words: Using "RED" or "YELLOW" is never punished.<br>• Punishment Should Fit the Offense: Severe offenses get severe punishments; minor offenses get minor punishments.<br>• Punishment Should Have Meaning: Punishments should help the partner remember the rule and improve.<br>• Punishment Ends With Love: All punishments end with hugs, kisses, and reassurance.</div>
+
+                <!-- 24.8 Bonus Execution Rules -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.8 BONUS EXECUTION RULES</strong><br>Bonuses must always follow these rules:<br>• Always Earned: Bonuses are only given when rules are followed perfectly.<br>• Always Appreciated: Bonuses should be given with gratitude and love.<br>• Always Timely: Bonuses should be given as soon as possible after earning.<br>• Surprise Bonuses: Extra bonuses can be given spontaneously for extraordinary behavior.<br>• Both Partners Can Earn: Both Deep and Honey can earn bonuses.<br>• Bonuses Are Not Required: Bonuses are optional rewards, not obligations.</div>
+
+                <!-- 24.9 Tracking -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.9 PUNISHMENT & BONUS TRACKING</strong><br>Use the Log Book to track all punishments and bonuses:<br>• Punishment Log: Record date, rule broken, punishment given, and feelings.<br>• Bonus Log: Record date, bonus earned, bonus given, and feelings.</div>
+
+                <!-- 24.10 Sign-off -->
+                <div class="card-rule" style="border-left-color: #c47a9a;"><strong>24.10 PUNISHMENT & BONUS AGREEMENT SIGN-OFF</strong><br>We both agree to the Rules, Punishments & Bonuses Summary and understand that:<br>• All punishments must be safe, consensual, and followed by aftercare.<br>• All bonuses must be earned and given with gratitude.<br>• Using "RED" or "YELLOW" is never punished.<br>• The goal is improvement and connection — not fear or harm.</div>
+                <div class="card-rule">Deep's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"> Honey's Initials: <input type="text" class="editable-field editable-field-sm" placeholder="Initials"> Date: <input type="text" class="editable-field editable-field-sm" placeholder="Date"></div>
+            </div>
+
+            <!-- ===== FINAL DECLARATION ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-heart" style="color:#c47a9a;"></i> Final Declaration of Trust and Love</div>
+                <div class="card-rule">Before we sign, we both declare:<br>• I trust my partner completely.<br>• I feel safe, loved, and cherished.<br>• I am excited for our journey together.<br>• I know my partner will respect my limits and care for my heart.<br>• I enter this contract with joy, not fear.<br>• I am doing this because I love my partner and want to deepen our connection.</div>
+                <div class="final-note" style="border-top: none; margin-top: 0.5rem;">
+                    "We trust each other. We love each other. We will care for each other — always."
+                </div>
+            </div>
+
+            <!-- ===== TIPS ===== -->
+            <div class="section">
+                <div class="section-title"><i class="fas fa-lightbulb"></i> Tips for Playing This With Honey</div>
+                <div class="card-rule">1. Read it out loud together: Sit on the couch, hold hands, and read this contract to each other. It builds excitement.</div>
+                <div class="card-rule">2. Start small: Don't try to do everything on the list on the first night. Pick just 2 or 3 rules to start with.</div>
+                <div class="card-rule">3. Use a timer: Since this is your first contract, set it for just 2 hours. When the 2 hours are up, the roles end and you go straight into aftercare. Short play is better than long, awkward play!</div>
+                <div class="card-rule">4. Laugh together: If something goes wrong (you trip, the handcuffs get stuck, you both start laughing), that is perfect. BDSM is supposed to be fun and intimate, not serious and scary.</div>
+                <div class="card-rule">5. Always prioritize aftercare: No matter how short or mild the scene, always make time for cuddles, water, and loving words.</div>
+                <div class="card-rule">6. Keep communicating: Even outside the contract, keep talking about what you both want, need, and feel. Communication is the foundation of trust.</div>
+                <div class="card-rule">7. Try switching slowly: If you want to try switching, start with just 10-15 minutes of role reversal to see how it feels. You can always switch back!</div>
+                <div class="card-rule">8. Give bonuses generously: Bonuses are a beautiful way to show appreciation. Don't wait for perfection — give bonuses when your partner makes you feel loved, cherished, or excited.</div>
+                <div class="card-rule">9. Update your toy list as you grow: As you buy new toys, simply tick the boxes in Section 23 and add them to your expansion plan. Always get mutual consent before using anything new.</div>
+            </div>
+
+            <!-- ===== FINAL NOTE ===== -->
+            <div class="section" style="border-top: 1px solid rgba(200,150,170,0.2);">
+                <div class="card-rule" style="border-left-color: #c47a9a; font-style: italic;">
+                    This contract is not about control — it is about connection.<br>
+                    It is not about power — it is about trust.<br>
+                    It is not about rules — it is about love.<br>
+                    We are two souls choosing to explore the depths of intimacy, vulnerability, and pleasure together. We are partners first, always. This contract is simply a beautiful map for our journey — but the journey itself is built on love, laughter, and unwavering trust.<br>
+                    And now, we have even more to explore — because sometimes, I will lead, and sometimes, I will surrender. But always, always — we will love and trust each other.<br>
+                    May every scene bring us closer. May every moment remind us why we chose each other. And may this experience be filled with passion, joy, and the deepest connection two people can share.<br>
+                    With all my love, forever and always,<br>
+                    <strong>Deep & Honey</strong> 💞
+                </div>
+            </div>
+
+            <!-- ===== WITNESS ===== -->
+            <div class="signature-block" style="margin-top: 1.5rem;">
+                <div class="signature-line">
+                    <span>👁️ Official Witness (Optional)</span>
+                    <div class="line"></div>
+                    <span style="font-size:0.7rem;">Witness Name: <input type="text" class="editable-field" style="min-width:140px;" placeholder="Name"> Witness Signature: <input type="text" class="editable-field" style="min-width:140px;" placeholder="Signature"> Date: <input type="text" class="editable-field" style="min-width:80px;" placeholder="Date"></span>
+                </div>
+            </div>
+
+            <!-- ===== FINAL SIGNATURES ===== -->
+            <div class="signature-block">
+                <div class="signature-line">
+                    <span>📝 Deep (Dominant / Submissive)</span>
+                    <div class="line"></div>
+                    <span style="font-size:0.7rem;">Signature: <input type="text" class="editable-field" style="min-width:160px;" placeholder="Signature"> Date: 30th July, 2026</span>
+                </div>
+                <div class="signature-line">
+                    <span>📝 Honey (Submissive / Dominant)</span>
+                    <div class="line"></div>
+                    <span style="font-size:0.7rem;">Signature: <input type="text" class="editable-field" style="min-width:160px;" placeholder="Signature"> Date: 30th July, 2026</span>
+                </div>
+            </div>
+
+            <!-- ===== SUMMARY ===== -->
+            <div class="section" style="border-top: 2px solid rgba(200,150,170,0.15);">
+                <div class="section-title"><i class="fas fa-file-alt"></i> BDSM Contract Summary</div>
+                <div class="card-rule"><strong>Overview</strong><br>A comprehensive BDSM relationship agreement between Deep (Dominant) and Honey (Submissive). Start Date: 30th July, 2026 (effective from this date onward)</div>
+                <div class="card-rule"><strong>🔴 Safety System</strong><br>• Green = Keep going<br>• Yellow = Slow down/ease up<br>• Red = Stop immediately (no questions asked)<br>• Non-verbal: 2 taps = Yellow, 3 taps = Red<br>• Check-ins every 15-20 minutes<br>• Both partners can use safe words</div>
+                <div class="card-rule"><strong>📋 Honey's Rules (Submissive)</strong><br>1. Address Deep as "Baby" or "Daddy"<br>2. Eye contact + "Yes, Baby" before obeying<br>3. Wear what Deep chooses<br>4. Ask permission to touch herself or use bathroom<br>5. Say "Thank you, Baby" after orgasms<br>6. Stay hydrated (1 glass water/hour)<br>7. Accept marks (hickeys, bites, hip spanks)</div>
+                <div class="card-rule"><strong>🛡️ Deep's Responsibilities</strong><br>1. No physical/emotional harm<br>2. Give compliments hourly<br>3. Provide aftercare<br>4. Respect hard limits<br>5. Be patient<br>6. Self-check before scenes</div>
+                <div class="card-rule"><strong>💞 Free Use Clause</strong><br>• Deep may initiate intimacy anytime in private<br>• If Honey says "no" without valid reason → she chooses a romantic "payment" within 24 hours<br>• Using safe words NEVER triggers penalties<br>• Max once per week</div>
+                <div class="card-rule"><strong>🔄 Switching Agreement</strong><br>• Roles can reverse if both agree<br>• Same safe words, limits, and aftercare apply<br>• Always optional, no pressure</div>
+                <div class="card-rule"><strong>🎯 Rules, Punishments & Bonuses</strong><br>• Punishments: Progressive (light → hard spanking + denial + apology)<br>• Bonuses: Massages, spa nights, extra orgasms, date nights<br>• Never punished for using "Red" or "Yellow"</div>
+                <div class="card-rule"><strong>Allowed Activities</strong><br>✅ Sensory play, spanking, restraints, service, orgasm control, verbal teasing</div>
+                <div class="card-rule"><strong>Hard Limits (NEVER)</strong><br>❌ Blood, permanent marks (except consented), other people, financial control, scat, humiliation, substances, breath play, needles, fire</div>
+                <div class="card-rule"><strong>Aftercare</strong><br>• Minimum 30 minutes<br>• Cuddles, blanket, water, snacks<br>• "You are safe. You are loved."<br>• Debrief within 24 hours</div>
+                <div class="card-rule"><strong>Rituals</strong><br>• Start: "Do you trust me?" / "Completely, Baby."<br>• End: "You are safe. You are loved. The scene is over."</div>
+                <div class="card-rule"><strong>Important Notes</strong><br>• Consent can be revoked anytime with "Red"<br>• Emergency contact: Mother-in-law (Hemangini Patel)<br>• Contract = ♾️ INFINITY (no expiry)<br>• Signed on: 30th July, 2026</div>
+                <div class="final-note" style="border-top: none; margin-top: 0.5rem; font-style: normal; font-weight: 400;">Built on trust, safety, and connection. Rules enhance intimacy, not control. Aftercare is non-negotiable. Communication and care come first — always.</div>
+            </div>
+
+            <!-- ===== FOOTER ===== -->
+            <div class="footer-note">
+                <i class="fas fa-heart"></i> With love, Deep & Honey <i class="fas fa-heart"></i> &nbsp;·&nbsp; Valid for ♾️ INFINITY — Started: 30th July, 2026.<br>
+                <span style="font-size:0.85rem; opacity:0.7;">Confidential — For Our Eyes Only</span>
+                <br><span class="page-number" style="font-size:0.8rem; opacity:0.6;"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== EMAIL MODAL ===== -->
+    <div class="email-modal" id="emailModal">
+        <div class="email-modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-envelope" style="color:#c47a9a;"></i> Email HTML Version</h3>
+                <button class="close-modal" id="closeEmailModalBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="subject-line">
+                <label for="emailSubjectInput"><i class="fas fa-tag"></i> Subject:</label>
+                <input type="text" id="emailSubjectInput" value="📜 Our BDSM Play Contract – Deep & Honey">
+                <span class="email-subject-auto">(auto-filled)</span>
+            </div>
+            <textarea id="emailHtmlOutput" readonly></textarea>
+            <button class="copy-btn" id="copyEmailBtn"><i class="fas fa-copy"></i> Copy to Clipboard</button>
+            <div id="copyFeedback" class="copy-feedback"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">✏️ Your changes are saved locally</div>
+
+    <script>
+        (function() {
+            const overlay = document.getElementById('password-overlay');
+            const contract = document.getElementById('contractWrapper');
+            const passwordInput = document.getElementById('passwordInput');
+            const unlockBtn = document.getElementById('unlockBtn');
+            const errorMsg = document.getElementById('errorMsg');
+            const toast = document.getElementById('toast');
+            const toggleBtn = document.getElementById('togglePasswordBtn');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            const CORRECT_PASSWORD = 'Deepnectar@1612@';
+
+            // Toggle password visibility
+            toggleBtn.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                toggleIcon.classList.toggle('fa-eye');
+                toggleIcon.classList.toggle('fa-eye-slash');
+            });
+
+            function unlockContract() {
+                const entered = passwordInput.value.trim();
+                if (entered === CORRECT_PASSWORD) {
+                    overlay.classList.add('hidden');
+                    contract.style.display = 'block';
+                    errorMsg.textContent = '';
+                    loadSavedData();
+                } else {
+                    errorMsg.textContent = '⛔ wrong password, try again.';
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }
+
+            function saveData() {
+                const fields = document.querySelectorAll('.editable-field, .editable-textarea');
+                const data = {};
+                fields.forEach((field, index) => {
+                    const key = field.id || `field-${index}`;
+                    data[key] = field.value;
+                });
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                const checkboxData = {};
+                checkboxes.forEach((cb, index) => {
+                    const key = cb.id || `cb-${index}`;
+                    checkboxData[key] = cb.checked;
+                });
+                data['_checkboxes'] = checkboxData;
+                localStorage.setItem('bdsmContractData', JSON.stringify(data));
+                showToast('✏️ All changes saved locally');
+            }
+
+            function loadSavedData() {
+                const saved = localStorage.getItem('bdsmContractData');
+                if (!saved) return;
+                try {
+                    const data = JSON.parse(saved);
+                    const fields = document.querySelectorAll('.editable-field, .editable-textarea');
+                    fields.forEach((field, index) => {
+                        const key = field.id || `field-${index}`;
+                        if (data[key] !== undefined) {
+                            field.value = data[key];
+                        }
+                    });
+                    if (data['_checkboxes']) {
+                        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        checkboxes.forEach((cb, index) => {
+                            const key = cb.id || `cb-${index}`;
+                            if (data['_checkboxes'][key] !== undefined) {
+                                cb.checked = data['_checkboxes'][key];
+                            }
+                        });
+                    }
+                } catch (e) { /* ignore */ }
+            }
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                clearTimeout(toast._timer);
+                toast._timer = setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+
+            document.addEventListener('input', function(e) {
+                if (e.target.matches('.editable-field, .editable-textarea, input[type="checkbox"]')) {
+                    saveData();
+                }
+            });
+
+            document.addEventListener('change', function(e) {
+                if (e.target.matches('input[type="checkbox"]')) {
+                    saveData();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                    e.preventDefault();
+                    saveData();
+                }
+            });
+
+            unlockBtn.addEventListener('click', unlockContract);
+            passwordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') unlockContract();
+            });
+
+            window.addEventListener('load', () => {
+                setTimeout(() => passwordInput.focus(), 300);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) passwordInput.focus();
+            });
+
+            setInterval(saveData, 30000);
+            window.saveContractData = saveData;
+
+            // ---- Email Modal ----
+            const emailModal = document.getElementById('emailModal');
+            const openEmailBtn = document.getElementById('openEmailModalBtn');
+            const closeEmailBtn = document.getElementById('closeEmailModalBtn');
+            const emailOutput = document.getElementById('emailHtmlOutput');
+            const copyBtn = document.getElementById('copyEmailBtn');
+            const copyFeedback = document.getElementById('copyFeedback');
+            const subjectInput = document.getElementById('emailSubjectInput');
+
+            // Auto-subject default
+            const DEFAULT_SUBJECT = '📜 Our BDSM Play Contract – Deep & Honey';
+
+            function getEmailHTML() {
+                // Grab the contract content from the page and wrap it in a clean HTML email template
+                const contractContent = document.querySelector('.contract-content');
+                const clone = contractContent.cloneNode(true);
+                // Remove any editable fields (they don't work well in email) — but we keep them as text
+                // Also remove print button, email button, etc.
+                // We'll generate a simplified version
+
+                // Get the main title and subhead
+                const titleEl = clone.querySelector('.title-group h1');
+                const subheadEl = clone.querySelector('.title-group .subhead');
+                const logoImg = clone.querySelector('.logo-img');
+
+                // Build email body manually for a clean, styled version
+                // We'll extract all sections and rebuild with inline styles for email compatibility
+
+                // Get all sections
+                const sections = clone.querySelectorAll('.section');
+                let sectionsHTML = '';
+                sections.forEach(section => {
+                    sectionsHTML += section.outerHTML;
+                });
+
+                // Get footer
+                const footer = clone.querySelector('.footer-note');
+                const footerHTML = footer ? footer.outerHTML : '';
+
+                // Build email HTML
+                return `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Our BDSM Play Contract – Deep & Honey</title>
+                    <style>
+                        body { font-family: 'Georgia', serif; background: #faf6f8; color: #1a1a1a; padding: 30px; max-width: 800px; margin: 0 auto; }
+                        .contract-email { background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+                        h1, h2, h3, h4 { font-family: 'Georgia', serif; color: #2a1a24; }
+                        .main-header { border-bottom: 2px solid #2a1a24; padding-bottom: 12px; margin-bottom: 20px; }
+                        .main-header h1 { font-size: 28px; margin-bottom: 4px; }
+                        .subhead { color: #555; font-size: 14px; }
+                        .section { margin-top: 24px; padding-top: 20px; border-top: 1px solid #ddd; }
+                        .section-title { font-size: 20px; font-weight: 600; color: #2a1a24; margin-bottom: 12px; }
+                        .card-rule { background: #f8f4f6; border-left: 3px solid #9f6a80; padding: 10px 18px; margin: 8px 0; border-radius: 0 8px 8px 0; }
+                        .card-rule strong { color: #2a1a24; }
+                        .highlight { background: #f0e6ea; padding: 2px 8px; border-radius: 20px; }
+                        .badge { display: inline-block; background: #ddd; padding: 2px 12px; border-radius: 30px; font-size: 12px; font-weight: 600; margin-right: 6px; }
+                        .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+                        .rule-item { background: #f5f0f2; padding: 8px 14px; border-radius: 8px; border: 1px solid #eee; }
+                        .signature-block { background: #f5f0f2; border-radius: 12px; padding: 16px 20px; margin-top: 20px; border: 1px solid #ddd; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+                        .signature-line { min-width: 160px; }
+                        .signature-line .line { border-bottom: 2px solid #aaa; width: 160px; height: 28px; margin-top: 4px; }
+                        .final-note { font-style: italic; color: #2a1a24; border-top: 1px solid #ddd; margin-top: 20px; padding-top: 18px; text-align: center; font-size: 16px; }
+                        .footer-note { margin-top: 28px; padding-top: 16px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666; }
+                        .toy-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+                        .toy-table td, .toy-table th { padding: 6px 10px; border: 1px solid #ddd; }
+                        .toy-table th { background: #eee; color: #1a1a1a; text-align: left; }
+                        .rule-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+                        .rule-table td, .rule-table th { padding: 6px 10px; border: 1px solid #ddd; vertical-align: top; }
+                        .rule-table th { background: #eee; color: #1a1a1a; text-align: left; }
+                        .inline-check { display: inline-block; margin: 0 4px; }
+                        .editable-field { border-bottom: 1px dashed #aaa; padding: 0 4px; background: #f8f4f6; font-family: inherit; font-size: inherit; }
+                        .small-meta { color: #777; font-size: 13px; }
+                        .fa-heart { color: #c47a9a; }
+                        .fa, .fas, .far { font-family: 'Font Awesome 6 Free'; font-weight: 400; }
+                        .logo-img { max-height: 70px; width: auto; border-radius: 8px; border: 1px solid #ddd; padding: 4px; background: #fff; }
+                        .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+                        .print-btn, .email-btn { display: none; }
+                        .section-title i { color: #9f6a80; margin-right: 8px; }
+                        @media (max-width: 600px) { .grid-2col { grid-template-columns: 1fr; } body { padding: 10px; } .contract-email { padding: 16px; } .signature-block { flex-direction: column; } }
+                        .check-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+                        .check-group label { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+                        input[type="checkbox"] { accent-color: #9f6a80; width: 14px; height: 14px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="contract-email">
+                        <div class="main-header">
+                            <div>
+                                <h1>THE DYNAMIC {BDSM} PLAY CONTRACT</h1>
+                                <div class="subhead">
+                                    <strong>Deep</strong> (Dominant / Top) & <strong>Honey</strong> (Submissive / Bottom) &nbsp;·&nbsp; 30th July, 2026 · ♾️ INFINITY
+                                </div>
+                            </div>
+                        </div>
+                        ${sectionsHTML}
+                        ${footerHTML}
+                    </div>
+                </body>
+                </html>
+                `;
+            }
+
+            function generateAndShowEmail() {
+                const html = getEmailHTML();
+                emailOutput.value = html;
+                emailModal.classList.add('active');
+            }
+
+            openEmailBtn.addEventListener('click', generateAndShowEmail);
+
+            closeEmailBtn.addEventListener('click', function() {
+                emailModal.classList.remove('active');
+                copyFeedback.textContent = '';
+            });
+
+            emailModal.addEventListener('click', function(e) {
+                if (e.target === emailModal) {
+                    emailModal.classList.remove('active');
+                    copyFeedback.textContent = '';
+                }
+            });
+
+            copyBtn.addEventListener('click', function() {
+                const text = emailOutput.value;
+                navigator.clipboard.writeText(text).then(() => {
+                    copyFeedback.textContent = '✅ Copied to clipboard! Paste it into your email editor.';
+                    copyFeedback.style.color = '#c481a0';
+                    setTimeout(() => { copyFeedback.textContent = ''; }, 4000);
+                }).catch(() => {
+                    // Fallback
+                    emailOutput.select();
+                    document.execCommand('copy');
+                    copyFeedback.textContent = '✅ Copied! Paste it into your email editor.';
+                    copyFeedback.style.color = '#c481a0';
+                    setTimeout(() => { copyFeedback.textContent = ''; }, 4000);
+                });
+            });
+
+            // Subject input auto-fill
+            subjectInput.value = DEFAULT_SUBJECT;
+
+            // Also include subject in the email HTML via a meta or hidden note
+            // The subject is already in the modal, but we'll also add it as a comment in the HTML
+            // The user will copy the HTML and paste it into an email editor — the subject is separate.
+            // But we also add a note in the HTML itself.
+            // Actually we already have it in the subject line above.
+
+            // When generating email, we could also add a subject line meta but it's fine.
+
+        })();
+    </script>
+</body>
+</html>
