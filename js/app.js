@@ -188,17 +188,19 @@
             window.saveContractData = saveData;
 
             // ---- Seal & Sign: accept-as-Deep / accept-as-Honey signature photos ----
-            // Signature photos (Google Drive direct-thumbnail links) supplied per request:
-            //   Deep  -> 1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj
-            //   Honey -> 1HRoqjVvSDswlROnookv0ykGagHwLQ6FI
+            // Both photos are bundled locally under img/ so they ALWAYS render.
+            // Google Drive /thumbnail links get blocked in some browsers, print
+            // previews and email exports - that is why Deep's sign never appeared.
+            // Sources: Deep 1KnoE8uWAwugB0PRMiPmq32eCW-ZxMasj,
+            //          Honey 1HRoqjVvSDswlROnookv0ykGagHwLQ6FI
             const SIGNATURES = {
-                deep:  'https://drive.google.com/thumbnail?id=1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj&sz=w400',
+                deep:  'img/signature-deep.png',
                 honey: 'img/signature-honey.png'
             };
             // If the Drive thumbnail link ever fails to load, fall back to direct file download.
             const SIGNATURE_FALLBACKS = {
                 deep:  'https://drive.usercontent.google.com/download?id=1KnoE8uWAwugB0PRMiPmq3eCW-ZxMasj&export=view',
-                honey: 'https://drive.google.com/thumbnail?id=1HRoqjVvSDswlROnookv0ykGagHwLQ6FI&sz=w400'
+                honey: 'https://drive.usercontent.google.com/download?id=1HRoqjVvSDswlROnookv0ykGagHwLQ6FI&export=view'
             };
             const SIGNED_NAMES = { deep: 'Deep', honey: 'Honey' };
             const ACCEPTED_KEY = 'bdsmContractAccepted';
